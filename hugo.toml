@@ -54,10 +54,10 @@ name = "z41f3r"
 weight = 1
 url = "about/"
 
-[[languages.en.menu.main]]
-name = "Post/WriteUps"
-weight = 2
-url = "posts/"
+#[[languages.en.menu.main]]
+#name = "Post/WriteUps"
+#weight = 2
+#url = "posts/"
 
 [[languages.en.menu.main]]
 name = "Projects"
@@ -84,10 +84,10 @@ name = "z41f3r"
 weight = 1
 url = "about/"
 
-[[languages.es.menu.main]]
-name = "Blogs/WriteUps"
-weight = 2
-url = "posts/"
+#[[languages.es.menu.main]]
+#name = "Blogs/WriteUps"
+#weight = 2
+#url = "posts/"
 
 [[languages.es.menu.main]]
 name = "Proyectos"

@@ -1,0 +1,67 @@
+{{ $language := .Page.Language.Lang }}
+{{ $projects := where .Site.RegularPages "Section" "projects" }}
+
+<div class="projects-grid">
+
+    {{ range $projects }}
+
+    <article class="project-card">
+
+        <div class="project-card-header">
+
+            <h2>
+                <a href="{{ .RelPermalink }}">
+                    {{ .Title }}
+                </a>
+            </h2>
+
+        </div>
+
+
+        {{ with .Params.tags }}
+
+        <div class="project-card-tags">
+
+            {{ range . }}
+
+            <span>[ {{ . }} ]</span>
+
+            {{ end }}
+
+        </div>
+
+        {{ end }}
+
+
+        {{ with .Description }}
+
+        <p class="project-card-description">
+            {{ . }}
+        </p>
+
+        {{ end }}
+
+
+        <div class="project-card-footer">
+
+            {{ if eq $language "es" }}
+
+                <a href="{{ .RelPermalink }}">
+                    Ver proyecto →
+                </a>
+
+            {{ else }}
+
+                <a href="{{ .RelPermalink }}">
+                    View project →
+                </a>
+
+            {{ end }}
+
+        </div>
+
+    </article>
+
+    {{ end }}
+
+</div>

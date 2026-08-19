@@ -2,6 +2,139 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/es/tags/bash/</loc>
+    <lastmod>2026-08-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/bash/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/bash/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/es/categories/</loc>
+    <lastmod>2026-08-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/categories/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/es/categories/ciberseguridad/</loc>
+    <lastmod>2026-08-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/es/categories/ctf/</loc>
+    <lastmod>2026-08-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/categories/ctf/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/categories/ctf/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/es/tags/git/</loc>
+    <lastmod>2026-08-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/git/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/git/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/es/tags/linux/</loc>
+    <lastmod>2026-08-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/linux/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/linux/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/es/tags/networking/</loc>
+    <lastmod>2026-08-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/networking/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/networking/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/es/tags/overthewire/</loc>
+    <lastmod>2026-08-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/overthewire/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/overthewire/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/es/projects/bandit/</loc>
+    <lastmod>2026-08-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/projects/bandit/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/projects/bandit/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/es/tags/</loc>
+    <lastmod>2026-08-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/es/</loc>
+    <lastmod>2026-08-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/"
+                />
+  </url><url>
     <loc>http://localhost:1313/es/authors/</loc>
     <xhtml:link
                 rel="alternate"
@@ -14,19 +147,7 @@
                 href="http://localhost:1313/es/authors/"
                 />
   </url><url>
-    <loc>http://localhost:1313/es/categories/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="http://localhost:1313/es/categories/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/es/proyectos/</loc>
+    <loc>http://localhost:1313/es/projects/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -35,7 +156,7 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="http://localhost:1313/es/proyectos/"
+                href="http://localhost:1313/es/projects/"
                 />
   </url><url>
     <loc>http://localhost:1313/es/series/</loc>
@@ -50,18 +171,6 @@
                 href="http://localhost:1313/es/series/"
                 />
   </url><url>
-    <loc>http://localhost:1313/es/tags/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="http://localhost:1313/es/tags/"
-                />
-  </url><url>
     <loc>http://localhost:1313/es/about/</loc>
     <xhtml:link
                 rel="alternate"
@@ -72,18 +181,6 @@
                 rel="alternate"
                 hreflang="es"
                 href="http://localhost:1313/es/about/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/es/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="http://localhost:1313/es/"
                 />
   </url>
 </urlset>

@@ -1,0 +1,4 @@
+{{- $projects := resources.Get "css/projects.css" -}}
+{{- if $projects }}
+<link rel="stylesheet" href="{{ $projects.RelPermalink }}">
+{{- end }}

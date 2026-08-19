@@ -6,6 +6,21 @@
     <description>Recent content in Categories on Z4IF3R</description>
     <generator>Hugo</generator>
     <language>es</language>
+    <lastBuildDate>Tue, 18 Aug 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/es/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ciberseguridad</title>
+      <link>http://localhost:1313/es/categories/ciberseguridad/</link>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/categories/ciberseguridad/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CTF</title>
+      <link>http://localhost:1313/es/categories/ctf/</link>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/categories/ctf/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

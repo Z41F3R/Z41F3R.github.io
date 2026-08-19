@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cybersecurity on Z41F3R</title>
+    <link>http://localhost:1313/categories/cybersecurity/</link>
+    <description>Recent content in Cybersecurity on Z41F3R</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 18 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/cybersecurity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OverTheWire — Bandit</title>
+      <link>http://localhost:1313/projects/bandit/</link>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/bandit/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://git.io/typing-svg&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;img src=&#34;https://readme-typing-svg.demolab.com?font=JetBrains&amp;#43;Mono&amp;amp;size=32&amp;amp;weight=700&amp;amp;pause=1000&amp;amp;color=2EA44F&amp;amp;center=false&amp;amp;vCenter=true&amp;amp;width=650&amp;amp;lines=%5B&amp;#43;OVER&amp;#43;THE&amp;#43;WIRE&amp;#43;%3A%3A&amp;#43;BANDIT&amp;#43;%5D&#34; alt=&#34;Typing SVG&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Projects/bandit.png&#34; alt=&#34;Bandit&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Practical learning project focused on Linux and offensive security, based on the Bandit wargame from OverTheWire.&lt;/strong&gt; The 33 documented challenges cover everything from Linux fundamentals and command-line usage to networking, enumeration, information analysis, automation, Git, and techniques for interacting with restricted environments.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Strengthening &lt;strong&gt;Linux, Bash, networking, and problem-solving skills&lt;/strong&gt; through progressive challenges.&lt;/li&gt;&#xA;&lt;li&gt;Practical use of tools such as &lt;code&gt;SSH&lt;/code&gt;, &lt;code&gt;Netcat&lt;/code&gt;, &lt;code&gt;Nmap&lt;/code&gt;, &lt;code&gt;OpenSSL&lt;/code&gt;, &lt;code&gt;grep&lt;/code&gt;, &lt;code&gt;find&lt;/code&gt;, &lt;code&gt;strings&lt;/code&gt;, &lt;code&gt;cron&lt;/code&gt;, and &lt;code&gt;Git&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;33/33 levels completed and documented&lt;/strong&gt;, prioritizing the analysis and reasoning behind each solution.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;🔗 &lt;a href=&#34;https://github.com/Z41F3R/Bandit_Writeups&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;View on GitHub&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

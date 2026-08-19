@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "coder-dark.css",
-	"sourceRoot": "/home/z4if3r0g/Documentos/Z41F3R.github.io",
+	"sourceRoot": "/home/z41f3r/Z41F3R.github.io",
 	"sources": [
 		"themes/hugo-coder/assets/scss/coder-dark.scss",
 		"themes/hugo-coder/assets/scss/_variables.scss",
