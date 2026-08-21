@@ -147,7 +147,7 @@
                 href="http://localhost:1313/es/authors/"
                 />
   </url><url>
-    <loc>http://localhost:1313/es/projects/</loc>
+    <loc>http://localhost:1313/es/proyectos/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -156,7 +156,7 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="http://localhost:1313/es/projects/"
+                href="http://localhost:1313/es/proyectos/"
                 />
   </url><url>
     <loc>http://localhost:1313/es/series/</loc>
