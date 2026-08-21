@@ -92,7 +92,7 @@ url = "about/"
 [[languages.es.menu.main]]
 name = "Proyectos"
 weight = 3
-url = "projects/"
+url = "proyectos/"
 
 #[[languages.es.menu.main]]
 #name = "Contacto"
