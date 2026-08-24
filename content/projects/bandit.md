@@ -1,5 +1,6 @@
 +++
 title = "OverTheWire — Bandit"
+description = ""
 slug = "bandit"
 date = 2026-08-18
 draft = false

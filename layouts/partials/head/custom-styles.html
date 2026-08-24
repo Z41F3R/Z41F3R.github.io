@@ -2,3 +2,8 @@
 {{- if $projects }}
 <link rel="stylesheet" href="{{ $projects.RelPermalink }}">
 {{- end }}
+
+{{- $writeups := resources.Get "css/writeups.css" -}}
+{{- if $writeups }}
+<link rel="stylesheet" href="{{ $writeups.RelPermalink }}">
+{{- end }}

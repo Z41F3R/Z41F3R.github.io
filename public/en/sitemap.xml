@@ -139,12 +139,24 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="http://localhost:1313/es/proyectos/"
+                href="http://localhost:1313/es/projects/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/projects/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/api/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/api/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/api/"
                 />
   </url><url>
     <loc>http://localhost:1313/authors/</loc>
@@ -159,6 +171,30 @@
                 href="http://localhost:1313/authors/"
                 />
   </url><url>
+    <loc>http://localhost:1313/certificates/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/certificates/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/certificates/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/privilege-escalation/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/privilege-escalation/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/privilege-escalation/"
+                />
+  </url><url>
     <loc>http://localhost:1313/series/</loc>
     <xhtml:link
                 rel="alternate"
@@ -171,6 +207,34 @@
                 href="http://localhost:1313/series/"
                 />
   </url><url>
+    <loc>http://localhost:1313/tags/test/</loc>
+  </url><url>
+    <loc>http://localhost:1313/certificates/test/</loc>
+  </url><url>
+    <loc>http://localhost:1313/writeups/test/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/writeups/test/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/writeups/test/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/web/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/web/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/web/"
+                />
+  </url><url>
     <loc>http://localhost:1313/about/</loc>
     <xhtml:link
                 rel="alternate"
@@ -181,6 +245,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/about/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/writeups/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/writeups/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/writeups/"
                 />
   </url>
 </urlset>

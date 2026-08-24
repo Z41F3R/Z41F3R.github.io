@@ -1,0 +1,84 @@
+{{ $language := .Page.Language.Lang }}
+{{ $writeups := where .Site.RegularPages "Section" "writeups" }}
+
+<div class="projects-grid">
+
+    {{ range $writeups }}
+
+    <article class="project-card writeup-card writeup-status-{{ lower .Params.machine_status }}">
+
+        <div class="project-card-header">
+
+            <h2>
+                <a href="{{ .RelPermalink }}">
+                    {{ .Title }}
+                </a>
+            </h2>
+
+        </div>
+
+        {{ with .Params.tags }}
+
+        <div class="project-card-tags">
+
+            {{ range . }}
+
+            <span>[ {{ . }} ]</span>
+
+            {{ end }}
+
+        </div>
+
+        {{ end }}
+
+        <div class="writeup-meta">
+
+            {{ with .Params.OS }}
+            <span>OS: {{ . }}</span>
+            {{ end }}
+
+            {{ with .Params.platform }}
+            <span>Platform: {{ . }}</span>
+            {{ end }}
+
+            {{ with .Params.difficulty }}
+            <span>Difficulty: {{ . }}</span>
+            {{ end }}
+
+            {{ with .Params.machine_status }}
+            <span>Machine: {{ . }}</span>
+            {{ end }}
+
+        </div>
+
+        {{ with .Description }}
+
+        <p class="project-card-description">
+            {{ . }}
+        </p>
+
+        {{ end }}
+
+        <div class="project-card-footer">
+
+            {{ if eq $language "es" }}
+
+                <a href="{{ .RelPermalink }}">
+                    Ver WriteUp →
+                </a>
+
+            {{ else }}
+
+                <a href="{{ .RelPermalink }}">
+                    View WriteUp →
+                </a>
+
+            {{ end }}
+
+        </div>
+
+    </article>
+
+    {{ end }}
+
+</div>

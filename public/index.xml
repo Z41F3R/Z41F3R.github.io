@@ -23,11 +23,39 @@
       <description>&lt;p&gt;&lt;a href=&#34;https://git.io/typing-svg&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;img src=&#34;https://readme-typing-svg.demolab.com?font=JetBrains&amp;#43;Mono&amp;amp;size=25&amp;amp;weight=700&amp;amp;pause=1000&amp;amp;color=2EA44F&amp;amp;center=false&amp;amp;vCenter=true&amp;amp;multiline=false&amp;amp;repeat=true&amp;amp;width=650&amp;amp;lines=%24&amp;#43;whoami;%24&amp;#43;nmap&amp;#43;-sV&amp;#43;-p-&amp;#43;192.168.1.0%2F24;%24&amp;#43;python3&amp;#43;-c&amp;#43;%22print%5C%28hex%5C%280x133d&amp;#43;-&amp;#43;0x12a7%5C%29%29%22;%24&amp;#43;git&amp;#43;log&amp;#43;--oneline&amp;#43;--all;%24&amp;#43;ss&amp;#43;-tulpn&amp;#43;%7C&amp;#43;grep&amp;#43;LISTEN;%24&amp;#43;cat&amp;#43;%2Fetc%2Fpasswd&amp;#43;%7C&amp;#43;grep&amp;#43;sh;%24&amp;#43;openssl&amp;#43;x509&amp;#43;-in&amp;#43;cert.pem&amp;#43;-text&amp;#43;-noout;%24&amp;#43;find&amp;#43;%2F&amp;#43;-name&amp;#43;%22%2A.conf%22&amp;#43;%7C&amp;#43;grep&amp;#43;etc;%24&amp;#43;ps&amp;#43;aux&amp;#43;%7C&amp;#43;grep&amp;#43;nginx;%24&amp;#43;systemctl&amp;#43;status&amp;#43;ssh;%24&amp;#43;echo&amp;#43;%22keep&amp;#43;learning%22&#34; alt=&#34;Typing SVG&#34;&gt;&lt;/a&gt;&#xA;&#xA;&#xA;&#xA;&lt;div class=&#34;projects-grid&#34;&gt;&#xA;&#xA;    &#xA;&#xA;    &lt;article class=&#34;project-card&#34;&gt;&#xA;&#xA;        &lt;div class=&#34;project-card-header&#34;&gt;&#xA;&#xA;            &lt;h2&gt;&#xA;                &lt;a href=&#34;http://localhost:1313/projects/bandit/&#34;&gt;&#xA;                    OverTheWire — Bandit&#xA;                &lt;/a&gt;&#xA;            &lt;/h2&gt;&#xA;&#xA;        &lt;/div&gt;&#xA;&#xA;&#xA;        &#xA;&#xA;        &lt;div class=&#34;project-card-tags&#34;&gt;&#xA;&#xA;            &#xA;&#xA;            &lt;span&gt;[ Linux ]&lt;/span&gt;&#xA;&#xA;            &#xA;&#xA;            &lt;span&gt;[ Bash ]&lt;/span&gt;&#xA;&#xA;            &#xA;&#xA;            &lt;span&gt;[ Networking ]&lt;/span&gt;&#xA;&#xA;            &#xA;&#xA;            &lt;span&gt;[ Git ]&lt;/span&gt;&#xA;&#xA;            &#xA;&#xA;            &lt;span&gt;[ OverTheWire ]&lt;/span&gt;&#xA;&#xA;            &#xA;&#xA;        &lt;/div&gt;&#xA;&#xA;        &#xA;&#xA;&#xA;        &#xA;&#xA;&#xA;        &lt;div class=&#34;project-card-footer&#34;&gt;&#xA;&#xA;            &#xA;&#xA;                &lt;a href=&#34;http://localhost:1313/projects/bandit/&#34;&gt;&#xA;                    View project →&#xA;                &lt;/a&gt;&#xA;&#xA;            &#xA;&#xA;        &lt;/div&gt;&#xA;&#xA;    &lt;/article&gt;&#xA;&#xA;    &#xA;&#xA;&lt;/div&gt;&#xA;&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Certificates</title>
+      <link>http://localhost:1313/certificates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/certificates/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Test Certificate</title>
+      <link>http://localhost:1313/certificates/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/certificates/test/</guid>
+      <description>&lt;p&gt;Este es un certificado de prueba.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Test WriteUp</title>
+      <link>http://localhost:1313/writeups/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/test/</guid>
+      <description>&lt;p&gt;soon&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Whoami</title>
       <link>http://localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/about/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;┌──&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;z41f3r㉿root&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;-&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└─$ whoami&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Z41F3R &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;Steven Guzman&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Technical support professional with more than 3 years of experience in enterprise environments, focused on infrastructure, systems, networking, and the operation of technology solutions.&lt;/p&gt;&#xA;&lt;p&gt;My professional experience focuses on the administration, configuration, implementation, and support of enterprise solutions, taking part in the diagnosis and resolution of issues involving software, hardware, systems, and infrastructure.&lt;/p&gt;&#xA;&lt;p&gt;This experience has allowed me to develop a practical understanding of how systems operate and are maintained in real-world environments, from day-to-day operations and technical support to troubleshooting and technical analysis.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>WriteUps</title>
+      <link>http://localhost:1313/writeups/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/</guid>
+      <description>&lt;div class=&#34;projects-grid&#34;&gt;&#xA;&#xA;    &#xA;&#xA;    &lt;article class=&#34;project-card writeup-card writeup-status-retired&#34;&gt;&#xA;&#xA;        &lt;div class=&#34;project-card-header&#34;&gt;&#xA;&#xA;            &lt;h2&gt;&#xA;                &lt;a href=&#34;http://localhost:1313/writeups/test/&#34;&gt;&#xA;                    Test WriteUp&#xA;                &lt;/a&gt;&#xA;            &lt;/h2&gt;&#xA;&#xA;        &lt;/div&gt;&#xA;&#xA;        &#xA;&#xA;        &lt;div class=&#34;project-card-tags&#34;&gt;&#xA;&#xA;            &#xA;&#xA;            &lt;span&gt;[ Web ]&lt;/span&gt;&#xA;&#xA;            &#xA;&#xA;            &lt;span&gt;[ API ]&lt;/span&gt;&#xA;&#xA;            &#xA;&#xA;            &lt;span&gt;[ Privilege Escalation ]&lt;/span&gt;&#xA;&#xA;            &#xA;&#xA;        &lt;/div&gt;&#xA;&#xA;        &#xA;&#xA;        &lt;div class=&#34;writeup-meta&#34;&gt;&#xA;&#xA;            &#xA;            &lt;span&gt;OS: Linux&lt;/span&gt;&#xA;            &#xA;&#xA;            &#xA;            &lt;span&gt;Platform: HackTheBox&lt;/span&gt;&#xA;            &#xA;&#xA;            &#xA;            &lt;span&gt;Difficulty: Easy&lt;/span&gt;&#xA;            &#xA;&#xA;            &#xA;            &lt;span&gt;Machine: Retired&lt;/span&gt;&#xA;            &#xA;&#xA;        &lt;/div&gt;&#xA;&#xA;        &#xA;&#xA;        &lt;p class=&#34;project-card-description&#34;&gt;&#xA;            Test entry to validate the WriteUps structure.&#xA;        &lt;/p&gt;&#xA;&#xA;        &#xA;&#xA;        &lt;div class=&#34;project-card-footer&#34;&gt;&#xA;&#xA;            &#xA;&#xA;                &lt;a href=&#34;http://localhost:1313/writeups/test/&#34;&gt;&#xA;                    View WriteUp →&#xA;                &lt;/a&gt;&#xA;&#xA;            &#xA;&#xA;        &lt;/div&gt;&#xA;&#xA;    &lt;/article&gt;&#xA;&#xA;    &#xA;&#xA;&lt;/div&gt;</description>
     </item>
   </channel>
 </rss>

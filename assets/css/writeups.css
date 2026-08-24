@@ -1,0 +1,218 @@
+/* =========================================================
+   WRITEUPS — METADATA
+   ========================================================= */
+
+.writeup-meta {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.35rem;
+
+    margin-bottom: 1.8rem;
+
+    padding: 0;
+
+    border-left: none;
+
+    background: none;
+
+    font-family:
+        "JetBrains Mono",
+        "Fira Code",
+        "Courier New",
+        monospace;
+
+    font-size: 1.5rem;
+
+    line-height: 1.6;
+}
+
+.writeup-meta span {
+
+    display: block;
+
+    color: inherit;
+
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   ACTIVE WRITEUP
+   ========================================================= */
+
+.writeup-card.writeup-status-active {
+
+    border-color: rgba(46, 164, 79, 0.45);
+
+    background-image:
+
+        linear-gradient(
+            rgba(46, 164, 79, 0.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(46, 164, 79, 0.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            135deg,
+            rgba(46, 164, 79, 0.08),
+            rgba(0, 0, 0, 0.03)
+        );
+
+    background-size:
+        25px 25px,
+        25px 25px,
+        auto;
+}
+
+
+/* =========================================================
+   RETIRED WRITEUP
+   ========================================================= */
+
+.writeup-card.writeup-status-retired {
+
+    border-color: rgba(255, 68, 68, 0.45);
+
+    background-image:
+
+        linear-gradient(
+            rgba(255, 68, 68, 0.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255, 68, 68, 0.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            135deg,
+            rgba(255, 68, 68, 0.08),
+            rgba(0, 0, 0, 0.03)
+        );
+
+    background-size:
+        25px 25px,
+        25px 25px,
+        auto;
+}
+
+
+/* =========================================================
+   TOP TERMINAL BAR
+   ========================================================= */
+
+.writeup-card.writeup-status-active::before {
+
+    background: #2ea44f;
+
+    box-shadow:
+        0 0 12px rgba(46, 164, 79, 0.8);
+}
+
+
+.writeup-card.writeup-status-retired::before {
+
+    background: #ff4444;
+
+    box-shadow:
+        0 0 12px rgba(255, 68, 68, 0.8);
+}
+
+
+/* =========================================================
+   TITLE PROMPT
+   ========================================================= */
+
+.writeup-card.writeup-status-active
+.project-card-header h2::before {
+
+    color: #2ea44f;
+
+    text-shadow:
+        0 0 8px rgba(46, 164, 79, 0.8);
+}
+
+
+.writeup-card.writeup-status-retired
+.project-card-header h2::before {
+
+    color: #ff4444;
+
+    text-shadow:
+        0 0 8px rgba(255, 68, 68, 0.8);
+}
+
+
+/* =========================================================
+   TAGS
+   ========================================================= */
+
+.writeup-card.writeup-status-active
+.project-card-tags span {
+
+    color: #2ea44f !important;
+
+    border-color: #2ea44f !important;
+
+    background: rgba(46, 164, 79, 0.08) !important;
+
+    text-shadow:
+        0 0 6px rgba(46, 164, 79, 0.35) !important;
+}
+
+
+.writeup-card.writeup-status-retired
+.project-card-tags span {
+
+    color: #ff4444 !important;
+
+    border-color: #ff4444 !important;
+
+    background: rgba(255, 68, 68, 0.08) !important;
+
+    text-shadow:
+        0 0 6px rgba(255, 68, 68, 0.35) !important;
+}
+
+
+/* =========================================================
+   MACHINE STATUS
+   ========================================================= */
+
+.writeup-card.writeup-status-active
+.writeup-meta span:last-child {
+
+    color: #2ea44f;
+}
+
+
+.writeup-card.writeup-status-retired
+.writeup-meta span:last-child {
+
+    color: #ff4444;
+}
+
+/* =========================================================
+   TERMINAL DOTS
+   ========================================================= */
+
+.writeup-card.writeup-status-active::after {
+
+    color: rgba(46, 164, 79, 0.5);
+}
+
+
+.writeup-card.writeup-status-retired::after {
+
+    color: rgba(255, 68, 68, 0.5);
+}
