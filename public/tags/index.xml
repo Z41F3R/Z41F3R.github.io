@@ -51,10 +51,24 @@
       <description></description>
     </item>
     <item>
-      <title>Privilege Escalation</title>
-      <link>http://localhost:1313/tags/privilege-escalation/</link>
+      <title>Enumeration</title>
+      <link>http://localhost:1313/tags/enumeration/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/privilege-escalation/</guid>
+      <guid>http://localhost:1313/tags/enumeration/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Starting Point</title>
+      <link>http://localhost:1313/tags/starting-point/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/starting-point/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Telnet</title>
+      <link>http://localhost:1313/tags/telnet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/telnet/</guid>
       <description></description>
     </item>
     <item>

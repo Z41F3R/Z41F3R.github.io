@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Starting Point on Z41F3R</title>
+    <link>http://localhost:1313/tags/starting-point/</link>
+    <description>Recent content in Starting Point on Z41F3R</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/tags/starting-point/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Meow</title>
+      <link>http://localhost:1313/writeups/meow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/meow/</guid>
+      <description>&lt;h3 id=&#34;overview&#34;&gt;&#xA;  Overview&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#overview&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Meow&lt;/strong&gt; is a machine from the &lt;strong&gt;Starting Point&lt;/strong&gt; path on Hack The Box. It is designed as an introduction to fundamental concepts such as reconnaissance, service enumeration, and remote access.&lt;/p&gt;&#xA;&lt;p&gt;The objective is to identify the services exposed by the target and use the information gathered during enumeration to gain access to the system.&lt;/p&gt;&#xA;&lt;h3 id=&#34;enumeration&#34;&gt;&#xA;  Enumeration&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#enumeration&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;We begin by performing an &lt;strong&gt;Nmap&lt;/strong&gt; scan to identify the ports and services available on the target:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

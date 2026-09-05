@@ -68,7 +68,7 @@ Focus       : Systems / Networking / Offensive Security
 
 ### Impact
 
-My technical development is not focused solely on acquiring knowledge, but on turning that knowledge into practical capabilities that can be applied to real-world environments.
+My technical training focuses on transforming knowledge into capabilities applicable to real-world environments through continuous practice, research, and problem-solving.
 
 My experience in technical support, systems, networking, and technology administration allows me to approach problems from a practical perspective: **identify the root cause of an issue, assess its impact, find a solution, and document the process.**
 

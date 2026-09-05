@@ -5,73 +5,87 @@
 
     {{ range $writeups }}
 
-    <article class="project-card writeup-card writeup-status-{{ lower .Params.machine_status }}">
+    <article class="project-card writeup-card writeup-difficulty-{{ lower .Params.difficulty }}">
 
-        <div class="project-card-header">
+        <div class="writeup-content">
 
-            <h2>
-                <a href="{{ .RelPermalink }}">
-                    {{ .Title }}
-                </a>
-            </h2>
+            <div class="writeup-main">
 
-        </div>
+                <div class="project-card-header">
 
-        {{ with .Params.tags }}
+                    <h2>
+                        <a href="{{ .RelPermalink }}">
+                            {{ .Title }}
+                        </a>
+                    </h2>
 
-        <div class="project-card-tags">
+                </div>
 
-            {{ range . }}
+                {{ with .Params.tags }}
 
-            <span>[ {{ . }} ]</span>
+                <div class="project-card-tags">
 
-            {{ end }}
+                    {{ range . }}
 
-        </div>
+                    <span>[ {{ . }} ]</span>
 
-        {{ end }}
+                    {{ end }}
 
-        <div class="writeup-meta">
+                </div>
 
-            {{ with .Params.OS }}
-            <span>OS: {{ . }}</span>
-            {{ end }}
+                {{ end }}
 
-            {{ with .Params.platform }}
-            <span>Platform: {{ . }}</span>
-            {{ end }}
+                <div class="writeup-meta">
 
-            {{ with .Params.difficulty }}
-            <span>Difficulty: {{ . }}</span>
-            {{ end }}
+                    {{ with .Params.OS }}
+                    <span>OS: {{ . }}</span>
+                    {{ end }}
 
-            {{ with .Params.machine_status }}
-            <span>Machine: {{ . }}</span>
-            {{ end }}
+                    {{ with .Params.platform }}
+                    <span>Platform: {{ . }}</span>
+                    {{ end }}
 
-        </div>
+                    {{ with .Params.difficulty }}
+                    <span>Difficulty: {{ . }}</span>
+                    {{ end }}
 
-        {{ with .Description }}
+                </div>
 
-        <p class="project-card-description">
-            {{ . }}
-        </p>
+                {{ with .Description }}
 
-        {{ end }}
+                <p class="project-card-description">
+                    {{ . }}
+                </p>
 
-        <div class="project-card-footer">
+                {{ end }}
 
-            {{ if eq $language "es" }}
+                <div class="project-card-footer">
 
-                <a href="{{ .RelPermalink }}">
-                    Ver WriteUp →
-                </a>
+                    {{ if eq $language "es" }}
 
-            {{ else }}
+                        <a href="{{ .RelPermalink }}">
+                            Ver WriteUp →
+                        </a>
 
-                <a href="{{ .RelPermalink }}">
-                    View WriteUp →
-                </a>
+                    {{ else }}
+
+                        <a href="{{ .RelPermalink }}">
+                            View WriteUp →
+                        </a>
+
+                    {{ end }}
+
+                </div>
+
+            </div>
+
+            {{ with .Params.image }}
+
+            <div class="writeup-image">
+
+                <img src="{{ . }}" alt="">
+
+            </div>
 
             {{ end }}
 

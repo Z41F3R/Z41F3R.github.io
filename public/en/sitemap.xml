@@ -183,16 +183,28 @@
                 href="http://localhost:1313/certificates/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tags/privilege-escalation/</loc>
+    <loc>http://localhost:1313/tags/enumeration/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="http://localhost:1313/es/tags/privilege-escalation/"
+                href="http://localhost:1313/es/tags/enumeration/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/tags/privilege-escalation/"
+                href="http://localhost:1313/tags/enumeration/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/writeups/meow/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/writeups/meow/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/writeups/meow/"
                 />
   </url><url>
     <loc>http://localhost:1313/series/</loc>
@@ -207,21 +219,33 @@
                 href="http://localhost:1313/series/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tags/test/</loc>
-  </url><url>
-    <loc>http://localhost:1313/certificates/test/</loc>
-  </url><url>
-    <loc>http://localhost:1313/writeups/test/</loc>
+    <loc>http://localhost:1313/tags/starting-point/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="http://localhost:1313/es/writeups/test/"
+                href="http://localhost:1313/es/tags/starting-point/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/writeups/test/"
+                href="http://localhost:1313/tags/starting-point/"
                 />
+  </url><url>
+    <loc>http://localhost:1313/tags/telnet/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/telnet/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/telnet/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/test/</loc>
+  </url><url>
+    <loc>http://localhost:1313/certificates/test/</loc>
   </url><url>
     <loc>http://localhost:1313/tags/web/</loc>
     <xhtml:link

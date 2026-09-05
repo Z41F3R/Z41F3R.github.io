@@ -1,155 +1,120 @@
 /* =========================================================
-   WRITEUPS — METADATA
+   WRITEUPS — TERMINAL / HACKER STYLE
    ========================================================= */
 
-.writeup-meta {
+/* =========================================================
+   DIFFICULTY COLORS
+   ========================================================= */
 
+.writeup-card.writeup-difficulty-very-easy,
+.writeup-card.writeup-difficulty-easy {
+    --writeup-color: #2ea44f;
+    --writeup-rgb: 46, 164, 79;
+}
+
+.writeup-card.writeup-difficulty-medium {
+    --writeup-color: #e0b400;
+    --writeup-rgb: 224, 180, 0;
+}
+
+.writeup-card.writeup-difficulty-hard,
+.writeup-card.writeup-difficulty-insane {
+    --writeup-color: #ff4444;
+    --writeup-rgb: 255, 68, 68;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.writeup-card {
+    min-height: 0;
+    padding: 1.8rem 2rem;
+
+    border-color: rgba(var(--writeup-rgb), 0.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(var(--writeup-rgb), 0.08),
+            rgba(0, 0, 0, 0.03)
+        );
+
+    background-image:
+        linear-gradient(
+            rgba(var(--writeup-rgb), 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(var(--writeup-rgb), 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            135deg,
+            rgba(var(--writeup-rgb), 0.08),
+            rgba(0, 0, 0, 0.03)
+        );
+
+    background-size:
+        25px 25px,
+        25px 25px,
+        auto;
+}
+
+
+/* =========================================================
+   TERMINAL TOP BAR
+   ========================================================= */
+
+.writeup-card::before {
+    background: var(--writeup-color);
+
+    box-shadow:
+        0 0 12px rgba(var(--writeup-rgb), 0.8);
+}
+
+
+/* =========================================================
+   REMOVE TERMINAL DOTS
+   ========================================================= */
+
+.writeup-card::after {
+    display: none;
+}
+
+
+/* =========================================================
+   CONTENT LAYOUT
+   ========================================================= */
+
+.writeup-content {
     display: flex;
-
-    flex-direction: column;
-
-    gap: 0.35rem;
-
-    margin-bottom: 1.8rem;
-
-    padding: 0;
-
-    border-left: none;
-
-    background: none;
-
-    font-family:
-        "JetBrains Mono",
-        "Fira Code",
-        "Courier New",
-        monospace;
-
-    font-size: 1.5rem;
-
-    line-height: 1.6;
+    align-items: stretch;
+    gap: 2rem;
 }
 
-.writeup-meta span {
-
-    display: block;
-
-    color: inherit;
-
-    opacity: 0.9;
+.writeup-main {
+    flex: 1;
+    min-width: 0;
 }
 
 
 /* =========================================================
-   ACTIVE WRITEUP
+   TITLE
    ========================================================= */
 
-.writeup-card.writeup-status-active {
-
-    border-color: rgba(46, 164, 79, 0.45);
-
-    background-image:
-
-        linear-gradient(
-            rgba(46, 164, 79, 0.025) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(46, 164, 79, 0.025) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            135deg,
-            rgba(46, 164, 79, 0.08),
-            rgba(0, 0, 0, 0.03)
-        );
-
-    background-size:
-        25px 25px,
-        25px 25px,
-        auto;
+.writeup-card .project-card-header {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
 }
 
-
-/* =========================================================
-   RETIRED WRITEUP
-   ========================================================= */
-
-.writeup-card.writeup-status-retired {
-
-    border-color: rgba(255, 68, 68, 0.45);
-
-    background-image:
-
-        linear-gradient(
-            rgba(255, 68, 68, 0.025) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(255, 68, 68, 0.025) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            135deg,
-            rgba(255, 68, 68, 0.08),
-            rgba(0, 0, 0, 0.03)
-        );
-
-    background-size:
-        25px 25px,
-        25px 25px,
-        auto;
-}
-
-
-/* =========================================================
-   TOP TERMINAL BAR
-   ========================================================= */
-
-.writeup-card.writeup-status-active::before {
-
-    background: #2ea44f;
-
-    box-shadow:
-        0 0 12px rgba(46, 164, 79, 0.8);
-}
-
-
-.writeup-card.writeup-status-retired::before {
-
-    background: #ff4444;
-
-    box-shadow:
-        0 0 12px rgba(255, 68, 68, 0.8);
-}
-
-
-/* =========================================================
-   TITLE PROMPT
-   ========================================================= */
-
-.writeup-card.writeup-status-active
-.project-card-header h2::before {
-
-    color: #2ea44f;
+.writeup-card .project-card-header h2::before {
+    color: var(--writeup-color);
 
     text-shadow:
-        0 0 8px rgba(46, 164, 79, 0.8);
-}
-
-
-.writeup-card.writeup-status-retired
-.project-card-header h2::before {
-
-    color: #ff4444;
-
-    text-shadow:
-        0 0 8px rgba(255, 68, 68, 0.8);
+        0 0 8px rgba(var(--writeup-rgb), 0.8);
 }
 
 
@@ -157,62 +122,211 @@
    TAGS
    ========================================================= */
 
-.writeup-card.writeup-status-active
-.project-card-tags span {
-
-    color: #2ea44f !important;
-
-    border-color: #2ea44f !important;
-
-    background: rgba(46, 164, 79, 0.08) !important;
-
-    text-shadow:
-        0 0 6px rgba(46, 164, 79, 0.35) !important;
+.writeup-card .project-card-tags {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 
+.writeup-card .project-card-tags span {
+    padding: 0.4rem 0.75rem !important;
 
-.writeup-card.writeup-status-retired
-.project-card-tags span {
+    border-color: var(--writeup-color) !important;
 
-    color: #ff4444 !important;
+    color: var(--writeup-color) !important;
 
-    border-color: #ff4444 !important;
-
-    background: rgba(255, 68, 68, 0.08) !important;
+    background:
+        rgba(var(--writeup-rgb), 0.08) !important;
 
     text-shadow:
-        0 0 6px rgba(255, 68, 68, 0.35) !important;
+        0 0 6px rgba(var(--writeup-rgb), 0.35) !important;
+}
+
+.writeup-card .project-card-tags span:hover {
+    background:
+        rgba(var(--writeup-rgb), 0.14) !important;
+
+    box-shadow:
+        0 0 8px rgba(var(--writeup-rgb), 0.2);
 }
 
 
 /* =========================================================
-   MACHINE STATUS
+   METADATA
    ========================================================= */
 
-.writeup-card.writeup-status-active
-.writeup-meta span:last-child {
+.writeup-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
 
-    color: #2ea44f;
+    margin-bottom: 1rem;
+
+    font-family:
+        "JetBrains Mono",
+        "Fira Code",
+        "Courier New",
+        monospace;
+
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
-
-.writeup-card.writeup-status-retired
-.writeup-meta span:last-child {
-
-    color: #ff4444;
+.writeup-meta span {
+    display: block;
 }
+
 
 /* =========================================================
-   TERMINAL DOTS
+   DIFFICULTY
    ========================================================= */
 
-.writeup-card.writeup-status-active::after {
+.writeup-meta span:last-child {
+    color: var(--writeup-color);
 
-    color: rgba(46, 164, 79, 0.5);
+    font-weight: 700;
+
+    text-shadow:
+        0 0 6px rgba(var(--writeup-rgb), 0.35);
 }
 
 
-.writeup-card.writeup-status-retired::after {
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
 
-    color: rgba(255, 68, 68, 0.5);
+.writeup-card .project-card-description {
+    margin: 0;
+
+    font-size: 1.1rem !important;
+    line-height: 1.7 !important;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.writeup-card .project-card-footer {
+    padding-top: 1.2rem;
+}
+
+.writeup-card .project-card-footer a {
+    color: var(--writeup-color);
+
+    font-size: 1.15rem !important;
+
+    text-shadow:
+        0 0 8px rgba(var(--writeup-rgb), 0.3);
+}
+
+.writeup-card .project-card-footer a:hover {
+    text-shadow:
+        0 0 10px rgba(var(--writeup-rgb), 0.7);
+}
+
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
+.writeup-image {
+    flex: 0 0 190px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.writeup-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 150px;
+
+    object-fit: contain;
+
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.writeup-card:hover {
+    transform: translateY(-6px);
+
+    border-color: var(--writeup-color);
+
+    background-image:
+        linear-gradient(
+            rgba(var(--writeup-rgb), 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(var(--writeup-rgb), 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            135deg,
+            rgba(var(--writeup-rgb), 0.12),
+            rgba(0, 0, 0, 0.04)
+        );
+
+    box-shadow:
+        0 0 10px rgba(var(--writeup-rgb), 0.18),
+        0 0 30px rgba(var(--writeup-rgb), 0.12),
+        0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .writeup-card {
+        padding: 1.5rem;
+    }
+
+    .writeup-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .writeup-image {
+        order: -1;
+
+        width: 100%;
+        flex: none;
+
+        max-height: 220px;
+    }
+
+    .writeup-image img {
+        min-height: 180px;
+        max-height: 220px;
+    }
+
+    .writeup-card .project-card-header h2 {
+        font-size: 1.65rem !important;
+    }
+
+    .writeup-meta {
+        font-size: 0.9rem;
+    }
+
+    .writeup-card .project-card-description {
+        font-size: 0.95rem !important;
+    }
+
+    .writeup-card .project-card-footer a {
+        font-size: 1rem !important;
+    }
+
 }

@@ -68,7 +68,7 @@ Focus       : Systems / Networking / Offensive Security
 
 ### Impacto
 
-Mi formación técnica no está orientada únicamente a adquirir conocimientos, sino a convertirlos en herramientas aplicables a entornos reales.
+Mi formación técnica se enfoca en transformar el conocimiento en capacidades aplicables a entornos reales, mediante práctica constante, investigación y resolución de problemas.
 
 La experiencia en soporte, sistemas, redes y administración tecnológica me permite abordar problemas desde una perspectiva práctica: **identificar el origen de una incidencia, analizar su impacto, encontrar una solución y documentar el proceso.**
 
