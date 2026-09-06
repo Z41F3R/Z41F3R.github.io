@@ -147,18 +147,6 @@
                 href="http://localhost:1313/projects/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tags/api/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="http://localhost:1313/es/tags/api/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/tags/api/"
-                />
-  </url><url>
     <loc>http://localhost:1313/authors/</loc>
     <xhtml:link
                 rel="alternate"
@@ -246,18 +234,6 @@
     <loc>http://localhost:1313/tags/test/</loc>
   </url><url>
     <loc>http://localhost:1313/certificates/test/</loc>
-  </url><url>
-    <loc>http://localhost:1313/tags/web/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="http://localhost:1313/es/tags/web/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/tags/web/"
-                />
   </url><url>
     <loc>http://localhost:1313/about/</loc>
     <xhtml:link

@@ -147,18 +147,6 @@
                 href="http://localhost:1313/es/projects/"
                 />
   </url><url>
-    <loc>http://localhost:1313/es/tags/api/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/tags/api/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="http://localhost:1313/es/tags/api/"
-                />
-  </url><url>
     <loc>http://localhost:1313/es/authors/</loc>
     <xhtml:link
                 rel="alternate"
@@ -182,8 +170,6 @@
                 hreflang="es"
                 href="http://localhost:1313/es/certificates/"
                 />
-  </url><url>
-    <loc>http://localhost:1313/es/tags/enumeracion/</loc>
   </url><url>
     <loc>http://localhost:1313/es/tags/enumeration/</loc>
     <xhtml:link
@@ -243,18 +229,6 @@
                 rel="alternate"
                 hreflang="es"
                 href="http://localhost:1313/es/tags/telnet/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/es/tags/web/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/tags/web/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="http://localhost:1313/es/tags/web/"
                 />
   </url><url>
     <loc>http://localhost:1313/es/about/</loc>
