@@ -8,6 +8,13 @@
     <language>es</language>
     <atom:link href="http://localhost:1313/es/tags/starting-point/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Fawn</title>
+      <link>http://localhost:1313/es/writeups/fawn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/writeups/fawn/</guid>
+      <description>&lt;h3 id=&#34;descripción-general&#34;&gt;&#xA;  Descripción general&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#descripci%c3%b3n-general&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Fawn&lt;/strong&gt; es una máquina perteneciente a &lt;strong&gt;Starting Point&lt;/strong&gt; de Hack The Box. Está diseñada para practicar conceptos fundamentales de reconocimiento, enumeración de servicios y acceso remoto mediante FTP.&lt;/p&gt;&#xA;&lt;p&gt;El objetivo consiste en identificar el servicio FTP expuesto, comprobar si permite acceso anónimo y utilizarlo para acceder a los archivos disponibles en el sistema.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;enumeración&#34;&gt;&#xA;  Enumeración&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#enumeraci%c3%b3n&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Comenzamos realizando un escaneo con &lt;strong&gt;Nmap&lt;/strong&gt; para identificar los puertos y servicios disponibles:&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Meow</title>
       <link>http://localhost:1313/es/writeups/meow/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

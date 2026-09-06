@@ -308,10 +308,10 @@
     }
 
     .writeup-image {
-        order: -1;
-
+        /*order: -1;
         width: 100%;
-        flex: none;
+        flex: none;*/
+        display: none;
 
         max-height: 220px;
     }

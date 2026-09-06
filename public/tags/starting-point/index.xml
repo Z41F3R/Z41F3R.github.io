@@ -8,6 +8,13 @@
     <language>en</language>
     <atom:link href="http://localhost:1313/tags/starting-point/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Fawn</title>
+      <link>http://localhost:1313/writeups/fawn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/fawn/</guid>
+      <description>&lt;h3 id=&#34;overview&#34;&gt;&#xA;  Overview&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#overview&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Fawn&lt;/strong&gt; is a machine from the &lt;strong&gt;Starting Point&lt;/strong&gt; path on Hack The Box. It is designed to practice fundamental concepts of reconnaissance, service enumeration, and remote access through FTP.&lt;/p&gt;&#xA;&lt;p&gt;The objective is to identify the exposed FTP service, determine whether anonymous access is enabled, and use it to access the files available on the system.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;enumeration&#34;&gt;&#xA;  Enumeration&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#enumeration&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;We begin by performing an &lt;strong&gt;Nmap&lt;/strong&gt; scan to identify the available ports and services:&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Meow</title>
       <link>http://localhost:1313/writeups/meow/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

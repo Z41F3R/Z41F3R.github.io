@@ -183,6 +183,30 @@
                 href="http://localhost:1313/tags/enumeration/"
                 />
   </url><url>
+    <loc>http://localhost:1313/writeups/fawn/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/writeups/fawn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/writeups/fawn/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/ftp/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/ftp/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/ftp/"
+                />
+  </url><url>
     <loc>http://localhost:1313/writeups/meow/</loc>
     <xhtml:link
                 rel="alternate"
