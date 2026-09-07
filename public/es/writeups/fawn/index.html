@@ -193,8 +193,8 @@
 </span></span><span class="line"><span class="cl">Nmap scan report <span class="k">for</span> &lt;TARGET_IP&gt;
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">PORT   STATE SERVICE
-</span></span><span class="line"><span class="cl">21/tcp open  ftp
-</span></span></code></pre></div><p>El puerto <code>21/tcp</code> se encuentra abierto y corresponde al servicio <strong>FTP</strong>.</p>
+</span></span><span class="line"><span class="cl">23/tcp open  ftp
+</span></span></code></pre></div><p>El puerto <code>23/tcp</code> se encuentra abierto y corresponde al servicio <strong>FTP</strong>.</p>
 <p>Al tratarse de un servicio utilizado para la transferencia de archivos, procedemos a investigar si permite algún tipo de acceso sin autenticación válida.</p>
 <hr>
 <h3 id="acceso-inicial">
@@ -246,7 +246,7 @@
 <p>El proceso seguido fue:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Enumeración
 </span></span><span class="line"><span class="cl">    ↓
-</span></span><span class="line"><span class="cl">Identificación del puerto 21
+</span></span><span class="line"><span class="cl">Identificación del puerto 23
 </span></span><span class="line"><span class="cl">    ↓
 </span></span><span class="line"><span class="cl">Detección de FTP
 </span></span><span class="line"><span class="cl">    ↓

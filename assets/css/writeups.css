@@ -308,17 +308,21 @@
     }
 
     .writeup-image {
-        /*order: -1;
+        order: -1;
         width: 100%;
-        flex: none;*/
-        display: none;
+        flex: none;
+        /*display: none;*/
 
-        max-height: 220px;
+        max-height: 120px;
     }
 
     .writeup-image img {
-        min-height: 180px;
-        max-height: 220px;
+        /*min-height: 180px;
+        max-height: 220px;*/
+        min-height: 80px;
+        max-height: 120px;
+        width: auto;
+        max-width: 140px;
     }
 
     .writeup-card .project-card-header h2 {

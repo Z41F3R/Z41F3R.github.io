@@ -38,10 +38,10 @@ Starting Nmap 7.95
 Nmap scan report for <TARGET_IP>
 
 PORT   STATE SERVICE
-21/tcp open  ftp
+23/tcp open  ftp
 ```
 
-Port `21/tcp` is open and corresponds to the **FTP** service.
+Port `23/tcp` is open and corresponds to the **FTP** service.
 
 Since FTP is commonly used for file transfer, we proceed to investigate whether the service allows access without valid authentication.
 
@@ -128,7 +128,7 @@ The methodology followed was:
 ```text
 Enumeration
     ↓
-Port 21 Identification
+Port 23 Identification
     ↓
 FTP Detection
     ↓
