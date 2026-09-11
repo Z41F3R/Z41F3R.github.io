@@ -171,6 +171,20 @@
                 href="http://localhost:1313/es/certificates/"
                 />
   </url><url>
+    <loc>http://localhost:1313/es/writeups/dancing/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/writeups/dancing/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/writeups/dancing/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/es/tags/en-progreso/</loc>
+  </url><url>
     <loc>http://localhost:1313/es/tags/enumeration/</loc>
     <xhtml:link
                 rel="alternate"
@@ -229,6 +243,18 @@
                 rel="alternate"
                 hreflang="es"
                 href="http://localhost:1313/es/series/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/es/tags/smb/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/smb/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/smb/"
                 />
   </url><url>
     <loc>http://localhost:1313/es/tags/starting-point/</loc>

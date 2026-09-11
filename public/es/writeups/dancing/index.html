@@ -32,7 +32,6 @@
     <meta property="article:tag" content="SMB">
     <meta property="article:tag" content="Enumeration">
     <meta property="article:tag" content="Starting Point">
-    <meta property="article:tag" content="EN PROGRESO">
 
 
 
@@ -170,7 +169,118 @@
       </h1>
     </header>
 
-    
+    <h3 id="descripción-general">
+  Descripción general
+  <a class="heading-link" href="#descripci%c3%b3n-general">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Dancing</strong> es una máquina perteneciente a <strong>Starting Point</strong> de Hack The Box. Está diseñada para practicar conceptos fundamentales de reconocimiento, enumeración de servicios y acceso a recursos compartidos mediante SMB.</p>
+<p>El objetivo consiste en identificar el servicio SMB expuesto, enumerar los recursos compartidos disponibles y acceder a los archivos que contienen la bandera.</p>
+<hr>
+<h3 id="enumeración">
+  Enumeración
+  <a class="heading-link" href="#enumeraci%c3%b3n">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Comenzamos realizando un escaneo con <strong>Nmap</strong> para identificar los puertos y servicios disponibles:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -sV -sC &lt;TARGET_IP&gt;
+</span></span></code></pre></div><p>El escaneo muestra los siguientes servicios:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">PORT     STATE SERVICE       VERSION
+</span></span><span class="line"><span class="cl">135/tcp  open  msrpc         Microsoft Windows RPC
+</span></span><span class="line"><span class="cl">139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
+</span></span><span class="line"><span class="cl">445/tcp  open  microsoft-ds?
+</span></span><span class="line"><span class="cl">5985/tcp open  http          Microsoft HTTPAPI httpd 2.0
+</span></span></code></pre></div><p>Los puertos <code>139/tcp</code> y <code>445/tcp</code> indican que el objetivo expone servicios relacionados con <strong>SMB</strong>, por lo que procedemos a enumerar los recursos compartidos.</p>
+<p>Utilizamos <code>smbclient</code> para listar los recursos disponibles:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">smbclient -L &lt;TARGET_IP&gt;
+</span></span></code></pre></div><p>El servidor muestra los siguientes recursos:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Sharename       Type      Comment
+</span></span><span class="line"><span class="cl">---------       ----      -------
+</span></span><span class="line"><span class="cl">ADMIN$          Disk      Remote Admin
+</span></span><span class="line"><span class="cl">C$              Disk      Default share
+</span></span><span class="line"><span class="cl">IPC$            IPC       Remote IPC
+</span></span><span class="line"><span class="cl">WorkShares      Disk
+</span></span></code></pre></div><p>El recurso <code>WorkShares</code> resulta especialmente interesante, ya que se encuentra disponible para acceso sin autenticación.</p>
+<hr>
+<h3 id="acceso-inicial">
+  Acceso inicial
+  <a class="heading-link" href="#acceso-inicial">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Nos conectamos al recurso compartido utilizando <code>smbclient</code> y la opción <code>-N</code> para realizar la conexión sin proporcionar contraseña:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">smbclient //&lt;TARGET_IP&gt;/WorkShares -N
+</span></span></code></pre></div><p>La conexión se establece correctamente:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Try &#34;help&#34; to get a list of possible commands.
+</span></span><span class="line"><span class="cl">smb: \&gt;
+</span></span></code></pre></div><p>Una vez dentro del recurso compartido, listamos su contenido:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls
+</span></span></code></pre></div><p>Encontramos dos directorios:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Amy.J
+</span></span><span class="line"><span class="cl">James.P
+</span></span></code></pre></div><p>Accedemos al directorio <code>Amy.J</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> Amy.J
+</span></span><span class="line"><span class="cl">ls
+</span></span></code></pre></div><p>Dentro encontramos el archivo:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">worknotes.txt
+</span></span></code></pre></div><p>Descargamos el archivo utilizando <code>get</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">get worknotes.txt
+</span></span></code></pre></div><p>Posteriormente regresamos al directorio principal y accedemos a <code>James.P</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> ..
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> James.P
+</span></span><span class="line"><span class="cl">ls
+</span></span></code></pre></div><p>En este directorio encontramos:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">flag.txt
+</span></span></code></pre></div><hr>
+<h3 id="bandera">
+  Bandera
+  <a class="heading-link" href="#bandera">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Descargamos la bandera utilizando el comando <code>get</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">get flag.txt
+</span></span></code></pre></div><p>El archivo se descarga correctamente y contiene la bandera de la máquina.</p>
+<p>Con esto se completa la máquina <strong>Dancing</strong>.</p>
+<hr>
+<h3 id="conclusión">
+  Conclusión
+  <a class="heading-link" href="#conclusi%c3%b3n">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Dancing</strong> presenta un escenario sencillo basado principalmente en la enumeración de servicios y el acceso a recursos compartidos mediante SMB.</p>
+<p>El proceso seguido fue:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Enumeración
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Identificación de SMB
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Enumeración de recursos compartidos
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Acceso a WorkShares
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Enumeración de directorios
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Acceso a James.P
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Descarga de flag.txt
+</span></span></code></pre></div><p>A pesar de su dificultad <strong>Very Easy</strong>, la máquina permite reforzar la importancia de enumerar correctamente los servicios SMB y revisar los recursos compartidos que pueden encontrarse disponibles sin autenticación.</p>
+<hr>
+<h3 id="estado-completada">
+  <a href="https://labs.hackthebox.com/achievement/machine/3933963/395"  class="external-link" target="_blank" rel="noopener">Estado: Completada</a>
+  <a class="heading-link" href="#estado-completada">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+
   </article>
 </section>
 

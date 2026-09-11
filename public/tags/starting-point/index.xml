@@ -8,6 +8,13 @@
     <language>en</language>
     <atom:link href="http://localhost:1313/tags/starting-point/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Dancing</title>
+      <link>http://localhost:1313/writeups/dancing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/dancing/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Fawn</title>
       <link>http://localhost:1313/writeups/fawn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
