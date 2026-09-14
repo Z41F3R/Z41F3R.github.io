@@ -342,3 +342,372 @@
     }
 
 }
+
+/* =========================================================
+   SEARCH & FILTERS
+   ========================================================= */
+
+.writeups-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    margin: 2rem 0 1.5rem;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.writeups-search {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 48px;
+
+    padding: 0 1rem;
+
+    border: 1px solid rgba(46, 164, 79, 0.45);
+    border-radius: 4px;
+
+    background: rgba(46, 164, 79, 0.03);
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.writeups-search:focus-within {
+    border-color: #2ea44f;
+
+    box-shadow:
+        0 0 10px rgba(46, 164, 79, 0.15);
+}
+
+.writeups-search-prompt {
+    margin-right: 0.6rem;
+
+    font-family:
+        "JetBrains Mono",
+        "Fira Code",
+        monospace;
+
+    font-weight: 700;
+
+    color: #2ea44f;
+
+    text-shadow:
+        0 0 8px rgba(46, 164, 79, 0.6);
+}
+
+.writeups-search input {
+    width: 100%;
+
+    border: 0;
+    outline: 0;
+
+    background: transparent;
+
+    font-family:
+        "JetBrains Mono",
+        "Fira Code",
+        monospace;
+
+    font-size: 1.4rem;
+
+    color: inherit;
+}
+
+.writeups-search input::placeholder {
+    color: inherit;
+    opacity: 0.5;
+}
+
+
+/* =========================================================
+   FILTER BUTTON
+   ========================================================= */
+
+.writeups-filter-toggle {
+    min-height: 48px;
+
+    padding: 0 1.2rem;
+
+    border: 1px solid rgba(46, 164, 79, 0.45);
+    border-radius: 4px;
+
+    background: rgba(46, 164, 79, 0.05);
+
+    font-family:
+        "JetBrains Mono",
+        "Fira Code",
+        monospace;
+
+    font-size: 1.05rem;
+    font-weight: 700;
+
+    color: #2ea44f;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.writeups-filter-toggle:hover {
+    border-color: #2ea44f;
+
+    background: rgba(46, 164, 79, 0.1);
+
+    box-shadow:
+        0 0 10px rgba(46, 164, 79, 0.15);
+}
+
+
+/* =========================================================
+   FILTER PANEL
+   ========================================================= */
+
+.writeups-filters {
+    display: none;
+
+    margin-bottom: 2rem;
+
+    padding: 1.5rem;
+
+    border: 1px solid rgba(46, 164, 79, 0.3);
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(46, 164, 79, 0.04),
+            rgba(0, 0, 0, 0.02)
+        );
+}
+
+.writeups-filters.is-open {
+    display: block;
+}
+
+
+/* =========================================================
+   FILTER GROUP
+   ========================================================= */
+
+.writeups-filter-group {
+    margin-bottom: 1.5rem;
+}
+
+.writeups-filter-group:last-child {
+    margin-bottom: 0;
+}
+
+.writeups-filter-label {
+    display: block;
+
+    margin-bottom: 0.7rem;
+
+    font-family:
+        "JetBrains Mono",
+        "Fira Code",
+        monospace;
+
+    font-size: 1.9rem;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    color: #2ea44f;
+}
+
+
+/* =========================================================
+   FILTER OPTIONS
+   ========================================================= */
+
+.writeups-filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.writeups-filter-option {
+    padding: 0.45rem 0.8rem;
+
+    border: 1px solid rgba(46, 164, 79, 0.35);
+    border-radius: 3px;
+
+    background: transparent;
+
+    font-family:
+        "JetBrains Mono",
+        "Fira Code",
+        monospace;
+
+    font-size: 1.2rem;
+
+    color: inherit;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.writeups-filter-option:hover,
+.writeups-filter-option.active {
+    border-color: #2ea44f;
+
+    background: rgba(46, 164, 79, 0.1);
+
+    color: #2ea44f;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .writeups-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .writeups-filter-toggle {
+        width: 100%;
+    }
+
+    .writeups-filters {
+        padding: 1rem;
+    }
+
+    .writeups-filter-options {
+        gap: 0.4rem;
+    }
+
+}
+
+/* =========================================================
+   WRITEUPS — PAGINATION
+   ========================================================= */
+
+.writeups-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1.2rem;
+
+    margin: 2.5rem 0 1rem;
+}
+
+
+/* =========================================================
+   PAGE BUTTON
+   ========================================================= */
+
+.writeups-page-button {
+    padding: 0;
+
+    border: 0;
+    background: transparent;
+
+    font-family:
+        "JetBrains Mono",
+        "Fira Code",
+        "Courier New",
+        monospace;
+
+    font-size: 2.05rem;
+    font-weight: 700;
+
+    color: inherit;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        text-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.writeups-page-button:hover:not(:disabled) {
+    color: #2ea44f;
+
+    text-shadow:
+        0 0 8px rgba(46, 164, 79, 0.5);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   ACTIVE PAGE
+   ========================================================= */
+
+.writeups-page-button.active {
+    color: #2ea44f;
+
+    text-shadow:
+        0 0 8px rgba(46, 164, 79, 0.6);
+}
+
+
+/* =========================================================
+   DISABLED
+   ========================================================= */
+
+.writeups-page-button:disabled {
+    opacity: 0.25;
+    cursor: default;
+}
+
+
+/* =========================================================
+   ARROWS
+   ========================================================= */
+
+.writeups-page-button:first-child,
+.writeups-page-button:last-child {
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .writeups-pagination {
+        gap: 0.9rem;
+        margin-top: 2rem;
+    }
+
+    .writeups-page-button {
+        font-size: 0.95rem;
+    }
+
+    .writeups-page-button:first-child,
+    .writeups-page-button:last-child {
+        font-size: 1.3rem;
+    }
+
+}
+

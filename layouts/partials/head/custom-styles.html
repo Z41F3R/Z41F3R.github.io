@@ -7,3 +7,9 @@
 {{- if $writeups }}
 <link rel="stylesheet" href="{{ $writeups.RelPermalink }}">
 {{- end }}
+
+{{ $writeupsJS := resources.Get "js/writeups.js" }}
+
+{{ if $writeupsJS }}
+    <script src="{{ $writeupsJS.RelPermalink }}"></script>
+{{ end }}

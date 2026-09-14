@@ -1,11 +1,238 @@
 {{ $language := .Page.Language.Lang }}
 {{ $writeups := where .Site.RegularPages "Section" "writeups" }}
 
+<div class="writeups-toolbar">
+
+    <div class="writeups-search">
+
+        <span class="writeups-search-prompt">&gt;</span>
+
+        <input
+            type="text"
+            id="writeups-search"
+            placeholder="Search writeups..."
+            autocomplete="off"
+        >
+
+    </div>
+
+    <button
+        type="button"
+        class="writeups-filter-toggle"
+        id="writeups-filter-toggle"
+    >
+        Filters
+    </button>
+
+</div>
+
+<div class="writeups-filters" id="writeups-filters">
+
+    {{/* =====================================================
+         COLLECT FILTER VALUES
+         ===================================================== */}}
+
+    {{ $platforms := slice }}
+    {{ $oses := slice }}
+    {{ $difficulties := slice }}
+    {{ $tags := slice }}
+
+    {{ range $writeups }}
+
+        {{ with .Params.platform }}
+            {{ $platforms = $platforms | append . }}
+        {{ end }}
+
+        {{ with .Params.OS }}
+            {{ $oses = $oses | append . }}
+        {{ end }}
+
+        {{ with .Params.difficulty }}
+            {{ $difficulties = $difficulties | append . }}
+        {{ end }}
+
+        {{ with .Params.tags }}
+            {{ range . }}
+                {{ $tags = $tags | append . }}
+            {{ end }}
+        {{ end }}
+
+    {{ end }}
+
+
+    {{/* =====================================================
+         PLATFORM
+         ===================================================== */}}
+
+    <div class="writeups-filter-group">
+
+        <span class="writeups-filter-label">
+            PLATFORM
+        </span>
+
+        <div class="writeups-filter-options">
+
+            <button
+                type="button"
+                class="writeups-filter-option active"
+                data-filter-type="platform"
+                data-filter-value="all"
+            >
+                ALL
+            </button>
+
+            {{ range (uniq $platforms) }}
+
+                <button
+                    type="button"
+                    class="writeups-filter-option"
+                    data-filter-type="platform"
+                    data-filter-value="{{ lower . }}"
+                >
+                    {{ . }}
+                </button>
+
+            {{ end }}
+
+        </div>
+
+    </div>
+
+
+    {{/* =====================================================
+         OS
+         ===================================================== */}}
+
+    <div class="writeups-filter-group">
+
+        <span class="writeups-filter-label">
+            OS
+        </span>
+
+        <div class="writeups-filter-options">
+
+            <button
+                type="button"
+                class="writeups-filter-option active"
+                data-filter-type="os"
+                data-filter-value="all"
+            >
+                ALL
+            </button>
+
+            {{ range (uniq $oses) }}
+
+                <button
+                    type="button"
+                    class="writeups-filter-option"
+                    data-filter-type="os"
+                    data-filter-value="{{ lower . }}"
+                >
+                    {{ . }}
+                </button>
+
+            {{ end }}
+
+        </div>
+
+    </div>
+
+
+    {{/* =====================================================
+         DIFFICULTY
+         ===================================================== */}}
+
+    <div class="writeups-filter-group">
+
+        <span class="writeups-filter-label">
+            DIFFICULTY
+        </span>
+
+        <div class="writeups-filter-options">
+
+            <button
+                type="button"
+                class="writeups-filter-option active"
+                data-filter-type="difficulty"
+                data-filter-value="all"
+            >
+                ALL
+            </button>
+
+            {{ range (uniq $difficulties) }}
+
+                <button
+                    type="button"
+                    class="writeups-filter-option"
+                    data-filter-type="difficulty"
+                    data-filter-value="{{ lower . }}"
+                >
+                    {{ . }}
+                </button>
+
+            {{ end }}
+
+        </div>
+
+    </div>
+
+
+    {{/* =====================================================
+         TAGS
+         ===================================================== */}}
+
+    <div class="writeups-filter-group">
+
+        <span class="writeups-filter-label">
+            TAGS
+        </span>
+
+        <div class="writeups-filter-options">
+
+            <button
+                type="button"
+                class="writeups-filter-option active"
+                data-filter-type="tag"
+                data-filter-value="all"
+            >
+                ALL
+            </button>
+
+            {{ range (uniq $tags) }}
+
+                <button
+                    type="button"
+                    class="writeups-filter-option"
+                    data-filter-type="tag"
+                    data-filter-value="{{ lower . }}"
+                >
+                    {{ . }}
+                </button>
+
+            {{ end }}
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="writeups-count" id="writeups-count">
+    Showing {{ len $writeups }} of {{ len $writeups }} writeups
+</div>
+
 <div class="projects-grid">
 
     {{ range $writeups }}
 
-    <article class="project-card writeup-card writeup-difficulty-{{ lower .Params.difficulty }}">
+    <article
+    class="project-card writeup-card writeup-difficulty-{{ lower .Params.difficulty }}"
+    data-platform="{{ lower .Params.platform }}"
+    data-os="{{ lower .Params.OS }}"
+    data-difficulty="{{ lower .Params.difficulty }}"
+    data-tags="{{ delimit (apply .Params.tags "lower" ".") "," }}"
+    data-search="{{ lower .Title }} {{ lower .Params.platform }} {{ lower .Params.OS }} {{ lower .Params.difficulty }} {{ lower (delimit .Params.tags " ") }}"
+    >
 
         <div class="writeup-content">
 
@@ -83,7 +310,7 @@
 
             <div class="writeup-image">
 
-                <img src="{{ . }}" alt="">
+                <img src="{{ . }}" alt="" loading="lazy">
 
             </div>
 
@@ -96,3 +323,5 @@
     {{ end }}
 
 </div>
+
+<div class="writeups-pagination" id="writeups-pagination"></div>

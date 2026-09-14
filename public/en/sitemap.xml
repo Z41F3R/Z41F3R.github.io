@@ -219,8 +219,6 @@
                 href="http://localhost:1313/tags/ftp/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tags/in-progress/</loc>
-  </url><url>
     <loc>http://localhost:1313/writeups/meow/</loc>
     <xhtml:link
                 rel="alternate"

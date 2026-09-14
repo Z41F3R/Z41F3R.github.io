@@ -183,8 +183,6 @@
                 href="http://localhost:1313/es/writeups/dancing/"
                 />
   </url><url>
-    <loc>http://localhost:1313/es/tags/en-progreso/</loc>
-  </url><url>
     <loc>http://localhost:1313/es/tags/enumeration/</loc>
     <xhtml:link
                 rel="alternate"
