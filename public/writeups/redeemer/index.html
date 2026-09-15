@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Redeemer · Z41F3R
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Z41F3R">
+<meta name="description" content="Starting Point machine focused on service enumeration and access through Redis.">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Redeemer">
+  <meta name="twitter:description" content="Starting Point machine focused on service enumeration and access through Redis.">
+
+<meta property="og:url" content="http://localhost:1313/writeups/redeemer/">
+  <meta property="og:site_name" content="Z41F3R">
+  <meta property="og:title" content="Redeemer">
+  <meta property="og:description" content="Starting Point machine focused on service enumeration and access through Redis.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:tag" content="Redis">
+    <meta property="article:tag" content="Enumeration">
+    <meta property="article:tag" content="Starting Point">
+    <meta property="article:tag" content="Foundations">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/writeups/redeemer/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+
+<link rel="stylesheet" href="/css/projects.css">
+<link rel="stylesheet" href="/css/writeups.css">
+
+
+
+
+    <script src="/js/writeups.js"></script>
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/avatar.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Z41F3R
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">z41f3r</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/writeups/">WriteUps</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/certificates/">Certificates</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/es/writeups/redeemer/">🇨🇱</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/writeups/redeemer/">
+          Redeemer
+        </a>
+      </h1>
+    </header>
+
+    <h3 id="overview">
+  Overview
+  <a class="heading-link" href="#overview">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Redeemer</strong> is a machine from the <strong>Starting Point</strong> path on Hack The Box. It is designed to practice fundamental concepts of service enumeration and database access through Redis.</p>
+<p>The objective is to identify the exposed Redis service, connect to the server, and enumerate the stored keys to obtain the flag.</p>
+<hr>
+<h3 id="enumeration">
+  Enumeration
+  <a class="heading-link" href="#enumeration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>We begin by performing a full port scan with <strong>Nmap</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nmap -p- -sS --min-rate <span class="m">5000</span> -T4 -Pn &lt;TARGET_IP&gt;
+</span></span></code></pre></div><p>The scan shows a single open port:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">PORT     STATE SERVICE
+</span></span><span class="line"><span class="cl">6379/tcp open  redis
+</span></span></code></pre></div><p>Port <code>6379/tcp</code> corresponds to the <strong>Redis</strong> service, so we proceed to investigate the service.</p>
+<hr>
+<h3 id="initial-access">
+  Initial Access
+  <a class="heading-link" href="#initial-access">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>We use <code>redis-cli</code> and specify the target IP address:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">redis-cli -h &lt;TARGET_IP&gt;
+</span></span></code></pre></div><p>The connection is established successfully:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">&lt;TARGET_IP&gt;:6379&gt;
+</span></span></code></pre></div><p>Once connected, we query the server information using the <code>info</code> command:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">info
+</span></span></code></pre></div><p>Among the retrieved information, we can identify the Redis version:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">redis_version:5.0.7
+</span></span></code></pre></div><p>We can also confirm that the server is running <strong>Linux</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">os:Linux 5.4.0-77-generic x86_64
+</span></span></code></pre></div><p>We continue enumerating the database by selecting database <code>0</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">SELECT <span class="m">0</span>
+</span></span></code></pre></div><p>Redis confirms that the operation was successful:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">OK
+</span></span></code></pre></div><p>We enumerate the stored keys using:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">KEYS *
+</span></span></code></pre></div><p>The server returns four keys:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">1) &#34;temp&#34;
+</span></span><span class="line"><span class="cl">2) &#34;flag&#34;
+</span></span><span class="line"><span class="cl">3) &#34;numb&#34;
+</span></span><span class="line"><span class="cl">4) &#34;stor&#34;
+</span></span></code></pre></div><p>The <code>flag</code> key is particularly interesting, so we proceed to retrieve its value.</p>
+<hr>
+<h3 id="flag">
+  Flag
+  <a class="heading-link" href="#flag">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>We query the contents of the <code>flag</code> key using the <code>GET</code> command:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">GET flag
+</span></span></code></pre></div><p>Redis returns the stored value:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">&#34;03e1d2b376c37ab3f5319922053953eb&#34;
+</span></span></code></pre></div><p>This gives us the flag and completes the <strong>Redeemer</strong> machine.</p>
+<hr>
+<h3 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Redeemer</strong> presents a straightforward scenario primarily focused on service enumeration and access to an exposed Redis instance.</p>
+<p>The methodology followed was:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Enumeration
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Port 6379 Identification
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Redis Detection
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Connection using redis-cli
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Database Enumeration
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Flag Key Identification
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Flag Retrieval
+</span></span></code></pre></div><p>Despite its <strong>Very Easy</strong> difficulty, the machine reinforces the importance of properly identifying exposed services and understanding how to interact with them to locate information available on the system.</p>
+<hr>
+<h3 id="status-completed">
+  <a href="https://labs.hackthebox.com/achievement/machine/3933963/472"  class="external-link" target="_blank" rel="noopener">Status: Completed</a>
+  <a class="heading-link" href="#status-completed">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2019 -
+    
+    2026
+     Z41F3R 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

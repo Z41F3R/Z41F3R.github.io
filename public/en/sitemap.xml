@@ -231,6 +231,30 @@
                 href="http://localhost:1313/writeups/meow/"
                 />
   </url><url>
+    <loc>http://localhost:1313/writeups/redeemer/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/writeups/redeemer/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/writeups/redeemer/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/redis/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/redis/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/redis/"
+                />
+  </url><url>
     <loc>http://localhost:1313/series/</loc>
     <xhtml:link
                 rel="alternate"

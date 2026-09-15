@@ -10,6 +10,7 @@ tags = [
     "SMB",
     "Enumeration",
     "Starting Point",
+    "Foundations"
 ]
 
 image = "/images/writeups/dancing.png"

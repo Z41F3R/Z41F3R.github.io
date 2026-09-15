@@ -9,7 +9,8 @@ difficulty = "Very-Easy"
 tags = [
 "Telnet",
 "Enumeration",
-"Starting Point"
+"Starting Point",
+"Foundations"
 ]
 
 image = "/images/writeups/meow.png"

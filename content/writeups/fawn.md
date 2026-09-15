@@ -9,7 +9,8 @@ difficulty = "Very-Easy"
 tags = [
     "FTP",
     "Enumeration",
-    "Starting Point"
+    "Starting Point",
+    "Foundations"
 ]
 
 image = "/images/writeups/fawn.png"
