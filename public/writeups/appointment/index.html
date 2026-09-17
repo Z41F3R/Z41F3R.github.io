@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Appointment · Z41F3R
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Z41F3R">
+<meta name="description" content="Starting Point machine focused on web enumeration and the exploitation of SQL Injection.">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Appointment">
+  <meta name="twitter:description" content="Starting Point machine focused on web enumeration and the exploitation of SQL Injection.">
+
+<meta property="og:url" content="http://localhost:1313/writeups/appointment/">
+  <meta property="og:site_name" content="Z41F3R">
+  <meta property="og:title" content="Appointment">
+  <meta property="og:description" content="Starting Point machine focused on web enumeration and the exploitation of SQL Injection.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:tag" content="SQL Injection">
+    <meta property="article:tag" content="Starting Point">
+    <meta property="article:tag" content="Fundamental Exploitation">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/writeups/appointment/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+
+<link rel="stylesheet" href="/css/projects.css">
+<link rel="stylesheet" href="/css/writeups.css">
+
+
+
+
+    <script src="/js/writeups.js"></script>
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/avatar.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Z41F3R
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">z41f3r</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/writeups/">WriteUps</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/certificates/">Certificates</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/es/writeups/appointment/">🇨🇱</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/writeups/appointment/">
+          Appointment
+        </a>
+      </h1>
+    </header>
+
+    <h3 id="overview">
+  Overview
+  <a class="heading-link" href="#overview">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Appointment</strong> is a machine from the <strong>Starting Point</strong> path on Hack The Box. It is designed to practice fundamental concepts of web enumeration and exploitation of a <strong>SQL Injection</strong> vulnerability in an authentication form.</p>
+<p>The objective is to identify the exposed web service and use SQL injection to modify the authentication query and gain access to the application.</p>
+<hr>
+<h3 id="enumeration">
+  Enumeration
+  <a class="heading-link" href="#enumeration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>We begin by performing an <strong>Nmap</strong> scan to identify the available web service:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -sC -sV -p <span class="m">80</span> -sS --min-rate <span class="m">5000</span> -T4 -Pn &lt;TARGET_IP&gt;
+</span></span></code></pre></div><p>The scan shows the following result:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">PORT   STATE SERVICE VERSION
+</span></span><span class="line"><span class="cl">80/tcp open  http    Apache httpd 2.4.38 ((Debian))
+</span></span></code></pre></div><p>Port <code>80/tcp</code> is open and corresponds to the <strong>HTTP</strong> service. Nmap also identifies that the application is running <strong>Apache 2.4.38 on Debian</strong>.</p>
+<p>The application title is identified as:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Login
+</span></span></code></pre></div><p>We continue with directory enumeration using <strong>Gobuster</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gobuster dir -u http://&lt;TARGET_IP&gt; -w big.txt
+</span></span></code></pre></div><p>Among the results, we find several directories related to the application&rsquo;s resources:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">css       (Status: 301)
+</span></span><span class="line"><span class="cl">fonts     (Status: 301)
+</span></span><span class="line"><span class="cl">images    (Status: 301)
+</span></span><span class="line"><span class="cl">js        (Status: 301)
+</span></span><span class="line"><span class="cl">vendor    (Status: 301)
+</span></span></code></pre></div><p>The main application presents a login form.</p>
+<hr>
+<h3 id="initial-access">
+  Initial Access
+  <a class="heading-link" href="#initial-access">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>After analyzing the authentication form, we identify that the username field may be susceptible to <strong>SQL Injection</strong>.</p>
+<p>To understand how the vulnerability works, we can represent the SQL query used by the application in a simplified form:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">usuarios</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;USER_INPUT&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;USER_INPUT&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>The application incorporates the values entered by the user into the SQL query to verify the credentials.</p>
+<p>The issue occurs when user-controlled input can modify the structure of the SQL query instead of being treated only as data.</p>
+<p>In the username field, we enter:</p>
+<p><img src="/images/writeups/Appointment/login_bypass.png" alt="sqli.es.png"></p>
+<p>The payload can be divided into three parts:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">admin  → value we want to use as the username
+</span></span><span class="line"><span class="cl">&#39;      → closes the quote delimiting the username value
+</span></span><span class="line"><span class="cl">#      → starts a SQL comment
+</span></span></code></pre></div><p>After entering the payload, the query can be represented as follows:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">usuarios</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;admin&#39;</span><span class="o">#</span><span class="s1">&#39; AND password = &#39;</span><span class="n">USER_INPUT</span><span class="s1">&#39;;
+</span></span></span></code></pre></div><p>The <code>#</code> character causes everything that follows it to be interpreted as a comment. Therefore, the portion corresponding to the password is no longer part of the executed query.</p>
+<p>The effective query is simplified to:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">usuarios</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;admin&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>In this way, the application only checks whether a user matching <code>admin</code> exists, without validating the password.</p>
+<p>The payload allows us to perform an <strong>authentication bypass</strong> and access the application without providing a valid password.</p>
+<p><img src="/images/writeups/Appointment/sqli.en.png" alt="sqli.es.png"></p>
+<hr>
+<h3 id="flag">
+  Flag
+  <a class="heading-link" href="#flag">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>After gaining access through the SQL injection, we obtain the flag provided by the machine.</p>
+<p>Retrieving the flag confirms that the authentication bypass was successful and allows us to complete <strong>Appointment</strong>.</p>
+<p><img src="/images/writeups/Appointment/login_ok.png" alt="login\_ok.png"></p>
+<hr>
+<h3 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Appointment</strong> presents a straightforward scenario based on the enumeration of a web service and the exploitation of a <strong>SQL Injection</strong> vulnerability in an authentication form.</p>
+<p>The process followed was:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Enumeration
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Port 80 Identification
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">HTTP Service Detection
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Directory Enumeration
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Login Form Identification
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">SQL Injection
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Payload: admin&#39;#
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Commenting Out the Remaining Query
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Authentication Bypass
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Flag Retrieval
+</span></span></code></pre></div><p>Despite its <strong>Very Easy</strong> difficulty, the machine provides a practical understanding of how user-controlled input can modify an SQL query and directly affect an application&rsquo;s authentication mechanism.</p>
+<hr>
+<h3 id="status-completed">
+  <a href="https://labs.hackthebox.com/achievement/machine/3933963/402"  class="external-link" target="_blank" rel="noopener">Status: Completed</a>
+  <a class="heading-link" href="#status-completed">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2019 -
+    
+    2026
+     Z41F3R 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

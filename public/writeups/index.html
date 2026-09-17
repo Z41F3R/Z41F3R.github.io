@@ -60,6 +60,28 @@
             
                 
             
+        
+
+    
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+                
+            
+                
+            
                 
             
         
@@ -86,8 +108,6 @@
             
                 
             
-                
-            
         
 
     
@@ -112,8 +132,6 @@
             
                 
             
-                
-            
         
 
     
@@ -131,8 +149,6 @@
         
 
         
-            
-                
             
                 
             
@@ -194,6 +210,12 @@
 
             
 
+                
+                    Windows
+                
+
+            
+
         
 
     
@@ -243,19 +265,25 @@
             
 
                 
-                    SMB
-                
-
-            
-
-                
-                    Enumeration
+                    SQL Injection
                 
 
             
 
                 
                     Starting Point
+                
+
+            
+
+                
+                    Fundamental Exploitation
+                
+
+            
+
+                
+                    SMB
                 
 
             
@@ -291,7 +319,7 @@
 
 
 
-    Showing 4 of 4 writeups
+    Showing 5 of 5 writeups
 
 
 
@@ -308,7 +336,7 @@
 
                     
                         
-                            Dancing
+                            Appointment
                         
                     
 
@@ -320,11 +348,7 @@
 
                     
 
-                    [ SMB ]
-
-                    
-
-                    [ Enumeration ]
+                    [ SQL Injection ]
 
                     
 
@@ -332,7 +356,7 @@
 
                     
 
-                    [ Foundations ]
+                    [ Fundamental Exploitation ]
 
                     
 
@@ -359,7 +383,7 @@
                 
 
                 
-                    Starting Point machine focused on service enumeration and access through SMB.
+                    Starting Point machine focused on web enumeration and the exploitation of SQL Injection.
                 ">
 <meta name="keywords" content="blog,developer,personal">
 
@@ -367,12 +391,12 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="WriteUps">
-  <meta name="twitter:description" content="&gt; Filters PLATFORM ALL HackTheBox OS ALL Linux DIFFICULTY ALL Very-Easy TAGS ALL SMB Enumeration Starting Point Foundations FTP Telnet Redis Showing 4 of 4 writeups Dancing [ SMB ] [ Enumeration ] [ Starting Point ] [ Foundations ] OS: Linux Platform: HackTheBox Difficulty: Very-Easy Starting Point machine focused on service enumeration and access through SMB.">
+  <meta name="twitter:description" content="&gt; Filters PLATFORM ALL HackTheBox OS ALL Linux Windows DIFFICULTY ALL Very-Easy TAGS ALL SQL Injection Starting Point Fundamental Exploitation SMB Foundations FTP Telnet Redis Showing 5 of 5 writeups Appointment [ SQL Injection ] [ Starting Point ] [ Fundamental Exploitation ] OS: Linux Platform: HackTheBox Difficulty: Very-Easy Starting Point machine focused on web enumeration and the exploitation of SQL Injection.">
 
 <meta property="og:url" content="http://localhost:1313/writeups/">
   <meta property="og:site_name" content="Z41F3R">
   <meta property="og:title" content="WriteUps">
-  <meta property="og:description" content="&gt; Filters PLATFORM ALL HackTheBox OS ALL Linux DIFFICULTY ALL Very-Easy TAGS ALL SMB Enumeration Starting Point Foundations FTP Telnet Redis Showing 4 of 4 writeups Dancing [ SMB ] [ Enumeration ] [ Starting Point ] [ Foundations ] OS: Linux Platform: HackTheBox Difficulty: Very-Easy Starting Point machine focused on service enumeration and access through SMB.">
+  <meta property="og:description" content="&gt; Filters PLATFORM ALL HackTheBox OS ALL Linux Windows DIFFICULTY ALL Very-Easy TAGS ALL SQL Injection Starting Point Fundamental Exploitation SMB Foundations FTP Telnet Redis Showing 5 of 5 writeups Appointment [ SQL Injection ] [ Starting Point ] [ Fundamental Exploitation ] OS: Linux Platform: HackTheBox Difficulty: Very-Easy Starting Point machine focused on web enumeration and the exploitation of SQL Injection.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
 
@@ -577,6 +601,28 @@
             
                 
             
+        
+
+    
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+                
+            
+                
+            
                 
             
         
@@ -603,8 +649,6 @@
             
                 
             
-                
-            
         
 
     
@@ -629,8 +673,6 @@
             
                 
             
-                
-            
         
 
     
@@ -648,8 +690,6 @@
         
 
         
-            
-                
             
                 
             
@@ -731,6 +771,17 @@
 
             
 
+                <button
+                    type="button"
+                    class="writeups-filter-option"
+                    data-filter-type="os"
+                    data-filter-value="windows"
+                >
+                    Windows
+                </button>
+
+            
+
         </div>
 
     </div>
@@ -798,20 +849,9 @@
                     type="button"
                     class="writeups-filter-option"
                     data-filter-type="tag"
-                    data-filter-value="smb"
+                    data-filter-value="sql injection"
                 >
-                    SMB
-                </button>
-
-            
-
-                <button
-                    type="button"
-                    class="writeups-filter-option"
-                    data-filter-type="tag"
-                    data-filter-value="enumeration"
-                >
-                    Enumeration
+                    SQL Injection
                 </button>
 
             
@@ -823,6 +863,28 @@
                     data-filter-value="starting point"
                 >
                     Starting Point
+                </button>
+
+            
+
+                <button
+                    type="button"
+                    class="writeups-filter-option"
+                    data-filter-type="tag"
+                    data-filter-value="fundamental exploitation"
+                >
+                    Fundamental Exploitation
+                </button>
+
+            
+
+                <button
+                    type="button"
+                    class="writeups-filter-option"
+                    data-filter-type="tag"
+                    data-filter-value="smb"
+                >
+                    SMB
                 </button>
 
             
@@ -878,7 +940,7 @@
 </div>
 
 <div class="writeups-count" id="writeups-count">
-    Showing 4 of 4 writeups
+    Showing 5 of 5 writeups
 </div>
 
 <div class="projects-grid">
@@ -890,8 +952,107 @@
     data-platform="hackthebox"
     data-os="linux"
     data-difficulty="very-easy"
-    data-tags="smb,enumeration,starting point,foundations"
-    data-search="dancing hackthebox linux very-easy smb enumeration starting point foundations"
+    data-tags="sql injection,starting point,fundamental exploitation"
+    data-search="appointment hackthebox linux very-easy sql injection starting point fundamental exploitation"
+    >
+
+        <div class="writeup-content">
+
+            <div class="writeup-main">
+
+                <div class="project-card-header">
+
+                    <h2>
+                        <a href="/writeups/appointment/">
+                            Appointment
+                        </a>
+                    </h2>
+
+                </div>
+
+                
+
+                <div class="project-card-tags">
+
+                    
+
+                    <span>[ SQL Injection ]</span>
+
+                    
+
+                    <span>[ Starting Point ]</span>
+
+                    
+
+                    <span>[ Fundamental Exploitation ]</span>
+
+                    
+
+                </div>
+
+                
+
+                <div class="writeup-meta">
+
+                    
+                    <span>OS: Linux</span>
+                    
+
+                    
+                    <span>Platform: HackTheBox</span>
+                    
+
+                    
+                    <span>Difficulty: Very-Easy</span>
+                    
+
+                </div>
+
+                
+
+                <p class="project-card-description">
+                    Starting Point machine focused on web enumeration and the exploitation of SQL Injection.
+                </p>
+
+                
+
+                <div class="project-card-footer">
+
+                    
+
+                        <a href="/writeups/appointment/">
+                            View WriteUp →
+                        </a>
+
+                    
+
+                </div>
+
+            </div>
+
+            
+
+            <div class="writeup-image">
+
+                <img src="/images/writeups/Appointment/appointment.png" alt="" loading="lazy">
+
+            </div>
+
+            
+
+        </div>
+
+    </article>
+
+    
+
+    <article
+    class="project-card writeup-card writeup-difficulty-very-easy"
+    data-platform="hackthebox"
+    data-os="windows"
+    data-difficulty="very-easy"
+    data-tags="smb,starting point,foundations"
+    data-search="dancing hackthebox windows very-easy smb starting point foundations"
     >
 
         <div class="writeup-content">
@@ -918,10 +1079,6 @@
 
                     
 
-                    <span>[ Enumeration ]</span>
-
-                    
-
                     <span>[ Starting Point ]</span>
 
                     
@@ -937,7 +1094,7 @@
                 <div class="writeup-meta">
 
                     
-                    <span>OS: Linux</span>
+                    <span>OS: Windows</span>
                     
 
                     
@@ -993,8 +1150,8 @@
     data-platform="hackthebox"
     data-os="linux"
     data-difficulty="very-easy"
-    data-tags="ftp,enumeration,starting point,foundations"
-    data-search="fawn hackthebox linux very-easy ftp enumeration starting point foundations"
+    data-tags="ftp,starting point,foundations"
+    data-search="fawn hackthebox linux very-easy ftp starting point foundations"
     >
 
         <div class="writeup-content">
@@ -1018,10 +1175,6 @@
                     
 
                     <span>[ FTP ]</span>
-
-                    
-
-                    <span>[ Enumeration ]</span>
 
                     
 
@@ -1096,8 +1249,8 @@
     data-platform="hackthebox"
     data-os="linux"
     data-difficulty="very-easy"
-    data-tags="telnet,enumeration,starting point,foundations"
-    data-search="meow hackthebox linux very-easy telnet enumeration starting point foundations"
+    data-tags="telnet,starting point,foundations"
+    data-search="meow hackthebox linux very-easy telnet starting point foundations"
     >
 
         <div class="writeup-content">
@@ -1121,10 +1274,6 @@
                     
 
                     <span>[ Telnet ]</span>
-
-                    
-
-                    <span>[ Enumeration ]</span>
 
                     
 
@@ -1199,8 +1348,8 @@
     data-platform="hackthebox"
     data-os="linux"
     data-difficulty="very-easy"
-    data-tags="redis,enumeration,starting point,foundations"
-    data-search="redeemer hackthebox linux very-easy redis enumeration starting point foundations"
+    data-tags="redis,starting point,foundations"
+    data-search="redeemer hackthebox linux very-easy redis starting point foundations"
     >
 
         <div class="writeup-content">
@@ -1224,10 +1373,6 @@
                     
 
                     <span>[ Redis ]</span>
-
-                    
-
-                    <span>[ Enumeration ]</span>
 
                     
 

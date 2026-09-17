@@ -3,12 +3,11 @@ title = "Dancing"
 description = "Starting Point machine focused on service enumeration and access through SMB."
 
 platform = "HackTheBox"
-OS = "Linux"
+OS = "Windows"
 difficulty = "Very-Easy"
 
 tags = [
     "SMB",
-    "Enumeration",
     "Starting Point",
     "Foundations"
 ]

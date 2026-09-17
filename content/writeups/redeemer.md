@@ -8,7 +8,6 @@ difficulty = "Very-Easy"
 
 tags = [
 "Redis",
-"Enumeration",
 "Starting Point",
 "Foundations"
 ]

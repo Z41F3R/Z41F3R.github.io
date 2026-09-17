@@ -8,7 +8,6 @@ difficulty = "Very-Easy"
 
 tags = [
     "FTP",
-    "Enumeration",
     "Starting Point",
     "Foundations"
 ]

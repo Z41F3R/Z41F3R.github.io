@@ -207,6 +207,18 @@
                 href="http://localhost:1313/es/writeups/fawn/"
                 />
   </url><url>
+    <loc>http://localhost:1313/es/tags/foundations/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/foundations/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/foundations/"
+                />
+  </url><url>
     <loc>http://localhost:1313/es/tags/ftp/</loc>
     <xhtml:link
                 rel="alternate"

@@ -8,7 +8,6 @@ difficulty = "Very-Easy"
 
 tags = [
 "Telnet",
-"Enumeration",
 "Starting Point",
 "Foundations"
 ]
