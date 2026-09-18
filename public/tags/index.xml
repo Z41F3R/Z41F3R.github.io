@@ -44,13 +44,6 @@
       <description></description>
     </item>
     <item>
-      <title>Enumeration</title>
-      <link>http://localhost:1313/tags/enumeration/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/enumeration/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Foundations</title>
       <link>http://localhost:1313/tags/foundations/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -65,6 +58,13 @@
       <description></description>
     </item>
     <item>
+      <title>Fundamental Exploitation</title>
+      <link>http://localhost:1313/tags/fundamental-exploitation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/fundamental-exploitation/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Redis</title>
       <link>http://localhost:1313/tags/redis/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -76,6 +76,13 @@
       <link>http://localhost:1313/tags/smb/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/smb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SQL Injection</title>
+      <link>http://localhost:1313/tags/sql-injection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/sql-injection/</guid>
       <description></description>
     </item>
     <item>

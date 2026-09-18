@@ -147,6 +147,18 @@
                 href="http://localhost:1313/projects/"
                 />
   </url><url>
+    <loc>http://localhost:1313/writeups/appointment/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/writeups/appointment/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/writeups/appointment/"
+                />
+  </url><url>
     <loc>http://localhost:1313/authors/</loc>
     <xhtml:link
                 rel="alternate"
@@ -183,18 +195,6 @@
                 href="http://localhost:1313/writeups/dancing/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tags/enumeration/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="http://localhost:1313/es/tags/enumeration/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/tags/enumeration/"
-                />
-  </url><url>
     <loc>http://localhost:1313/writeups/fawn/</loc>
     <xhtml:link
                 rel="alternate"
@@ -229,6 +229,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/tags/ftp/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/fundamental-exploitation/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/fundamental-exploitation/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/fundamental-exploitation/"
                 />
   </url><url>
     <loc>http://localhost:1313/writeups/meow/</loc>
@@ -289,6 +301,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/tags/smb/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/sql-injection/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/sql-injection/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/sql-injection/"
                 />
   </url><url>
     <loc>http://localhost:1313/tags/starting-point/</loc>

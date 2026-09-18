@@ -8,6 +8,13 @@
     <language>es</language>
     <atom:link href="http://localhost:1313/es/tags/starting-point/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Appointment</title>
+      <link>http://localhost:1313/es/writeups/appointment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/writeups/appointment/</guid>
+      <description>&lt;h3 id=&#34;descripción-general&#34;&gt;&#xA;  Descripción general&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#descripci%c3%b3n-general&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Appointment&lt;/strong&gt; es una máquina perteneciente a &lt;strong&gt;Starting Point&lt;/strong&gt; de Hack The Box. Está diseñada para practicar conceptos fundamentales de enumeración web y explotación de una vulnerabilidad de &lt;strong&gt;SQL Injection&lt;/strong&gt; en un formulario de autenticación.&lt;/p&gt;&#xA;&lt;p&gt;El objetivo consiste en identificar el servicio web expuesto y utilizar una inyección SQL para modificar la consulta de autenticación y obtener acceso a la aplicación.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Dancing</title>
       <link>http://localhost:1313/es/writeups/dancing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -34,6 +41,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/es/writeups/redeemer/</guid>
       <description>&lt;h3 id=&#34;descripción-general&#34;&gt;&#xA;  Descripción general&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#descripci%c3%b3n-general&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Redeemer&lt;/strong&gt; es una máquina perteneciente a &lt;strong&gt;Starting Point&lt;/strong&gt; de Hack The Box. Está diseñada para practicar conceptos fundamentales de enumeración de servicios y acceso a bases de datos mediante Redis.&lt;/p&gt;&#xA;&lt;p&gt;El objetivo consiste en identificar el servicio Redis expuesto, conectarse al servidor y enumerar las claves almacenadas para obtener la bandera.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;enumeración&#34;&gt;&#xA;  Enumeración&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#enumeraci%c3%b3n&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Comenzamos realizando un escaneo completo de puertos con &lt;strong&gt;Nmap&lt;/strong&gt;:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Sequel</title>
+      <link>http://localhost:1313/es/writeups/sequel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/writeups/sequel/</guid>
+      <description>&lt;h3 id=&#34;descripción-general&#34;&gt;&#xA;  Descripción general&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#descripci%c3%b3n-general&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Sequel&lt;/strong&gt; es una máquina perteneciente a &lt;strong&gt;Starting Point&lt;/strong&gt; de Hack The Box. Está diseñada para practicar conceptos fundamentales de enumeración de servicios y acceso a una base de datos &lt;strong&gt;MariaDB&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;El objetivo consiste en identificar el servicio de base de datos expuesto, establecer una conexión y realizar una enumeración básica hasta localizar la bandera almacenada en la base de datos.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

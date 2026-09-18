@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Sequel · Z4IF3R
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Z41F3R">
+<meta name="description" content="Máquina de Starting Point enfocada en la enumeración de servicios y el acceso a una base de datos MariaDB.">
+<meta name="keywords" content="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sequel">
+  <meta name="twitter:description" content="Máquina de Starting Point enfocada en la enumeración de servicios y el acceso a una base de datos MariaDB.">
+
+<meta property="og:url" content="http://localhost:1313/es/writeups/sequel/">
+  <meta property="og:site_name" content="Z4IF3R">
+  <meta property="og:title" content="Sequel">
+  <meta property="og:description" content="Máquina de Starting Point enfocada en la enumeración de servicios y el acceso a una base de datos MariaDB.">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:tag" content="MariaDB">
+    <meta property="article:tag" content="SQL">
+    <meta property="article:tag" content="Starting Point">
+    <meta property="article:tag" content="Fundamental Exploitation">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/es/writeups/sequel/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+
+<link rel="stylesheet" href="/css/projects.css">
+<link rel="stylesheet" href="/css/writeups.css">
+
+
+
+
+    <script src="/js/writeups.js"></script>
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/avatar.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/es/">
+      Z4IF3R
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/es/about/">z41f3r</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/es/writeups/">WriteUps</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/es/projects/">Proyectos</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/es/certificates/">Certificados</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/writeups/sequel/">🇬🇧</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/es/writeups/sequel/">
+          Sequel
+        </a>
+      </h1>
+    </header>
+
+    <h3 id="descripción-general">
+  Descripción general
+  <a class="heading-link" href="#descripci%c3%b3n-general">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Sequel</strong> es una máquina perteneciente a <strong>Starting Point</strong> de Hack The Box. Está diseñada para practicar conceptos fundamentales de enumeración de servicios y acceso a una base de datos <strong>MariaDB</strong>.</p>
+<p>El objetivo consiste en identificar el servicio de base de datos expuesto, establecer una conexión y realizar una enumeración básica hasta localizar la bandera almacenada en la base de datos.</p>
+<hr>
+<h3 id="enumeración">
+  Enumeración
+  <a class="heading-link" href="#enumeraci%c3%b3n">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Comenzamos verificando la conectividad con la máquina mediante <strong>Ping</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ping &lt;TARGET_IP&gt;
+</span></span></code></pre></div><p>La máquina responde correctamente, por lo que continuamos con la enumeración del servicio utilizando <strong>Nmap</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nmap -sC -sV -p <span class="m">3306</span> -sS --min-rate <span class="m">5000</span> -Pn -T4 &lt;TARGET_IP&gt;
+</span></span></code></pre></div><p>El escaneo muestra el siguiente resultado:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">PORT     STATE SERVICE VERSION
+</span></span><span class="line"><span class="cl">3306/tcp open  mysql?
+</span></span><span class="line"><span class="cl">| mysql-info:
+</span></span><span class="line"><span class="cl">|   Protocol: 10
+</span></span><span class="line"><span class="cl">|   Version: 5.5.5-10.3.27-MariaDB-0+deb10u1
+</span></span><span class="line"><span class="cl">|   Thread ID: 65
+</span></span><span class="line"><span class="cl">|   Capabilities flags: 63486
+</span></span><span class="line"><span class="cl">|   Status: Autocommit
+</span></span><span class="line"><span class="cl">|   Auth Plugin Name: mysql_native_password
+</span></span></code></pre></div><p>El puerto <code>3306/tcp</code> se encuentra abierto y corresponde al servicio de <strong>MySQL/MariaDB</strong>.</p>
+<p>Nmap identifica específicamente la versión:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">10.3.27-MariaDB-0+deb10u1
+</span></span></code></pre></div><p>Con el servicio identificado, intentamos establecer una conexión utilizando el cliente de <strong>MariaDB</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo mysql -h &lt;TARGET_IP&gt; -u root --skip-ssl
+</span></span></code></pre></div><p>La conexión es exitosa y obtenemos acceso al monitor de MariaDB:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Welcome to the MariaDB monitor.
+</span></span><span class="line"><span class="cl">Server version: 10.3.27-MariaDB-0+deb10u1 Debian 10
+</span></span></code></pre></div><hr>
+<h3 id="acceso-inicial">
+  Acceso inicial
+  <a class="heading-link" href="#acceso-inicial">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Una vez dentro de MariaDB, comenzamos enumerando las bases de datos disponibles:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="n">DATABASES</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p><code>SHOW DATABASES;</code> permite listar las bases de datos disponibles en el servidor.</p>
+<p>El servidor devuelve:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">+--------------------+
+</span></span><span class="line"><span class="cl">| Database           |
+</span></span><span class="line"><span class="cl">+--------------------+
+</span></span><span class="line"><span class="cl">| htb                |
+</span></span><span class="line"><span class="cl">| information_schema |
+</span></span><span class="line"><span class="cl">| mysql              |
+</span></span><span class="line"><span class="cl">| performance_schema |
+</span></span><span class="line"><span class="cl">+--------------------+
+</span></span></code></pre></div><p>La base de datos <code>htb</code> resulta relevante, por lo que procedemos a seleccionarla:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">USE</span><span class="w"> </span><span class="n">htb</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p><code>USE</code> permite seleccionar la base de datos sobre la que se ejecutarán las siguientes consultas.</p>
+<p>A continuación, enumeramos las tablas disponibles:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="n">TABLES</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p><code>SHOW TABLES;</code> muestra las tablas existentes dentro de la base de datos seleccionada.</p>
+<p>Obtenemos:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">+---------------+
+</span></span><span class="line"><span class="cl">| Tables_in_htb |
+</span></span><span class="line"><span class="cl">+---------------+
+</span></span><span class="line"><span class="cl">| config        |
+</span></span><span class="line"><span class="cl">| users         |
+</span></span><span class="line"><span class="cl">+---------------+
+</span></span></code></pre></div><p>Encontramos las tablas <code>config</code> y <code>users</code>. Continuamos examinando la estructura de <code>config</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">DESCRIBE</span><span class="w"> </span><span class="n">config</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p><code>DESCRIBE</code> permite consultar la estructura de una tabla, mostrando sus columnas y tipos de datos.</p>
+<p>El resultado muestra los siguientes campos:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">+-------+---------------------+
+</span></span><span class="line"><span class="cl">| Field | Type                |
+</span></span><span class="line"><span class="cl">+-------+---------------------+
+</span></span><span class="line"><span class="cl">| id    | bigint(20) unsigned |
+</span></span><span class="line"><span class="cl">| name  | text                |
+</span></span><span class="line"><span class="cl">| value | text                |
+</span></span><span class="line"><span class="cl">+-------+---------------------+
+</span></span></code></pre></div><p>Para consultar los registros almacenados en la tabla utilizamos:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">config</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p><code>SELECT</code> permite recuperar datos de una tabla. El carácter <code>*</code> indica que queremos obtener todas las columnas.</p>
+<p>Entre los resultados encontramos un registro relacionado con la bandera:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">| 5 | flag | 7b4bec00d1a39e3dd4e021ec3d915da8 |
+</span></span></code></pre></div><p>Finalmente, utilizamos una condición <code>WHERE</code> para consultar específicamente el registro cuyo <code>id</code> es <code>5</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p><code>WHERE</code> permite filtrar los resultados según una condición determinada.</p>
+<p>El resultado confirma la presencia de la bandera:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">+----+------+----------------------------------+
+</span></span><span class="line"><span class="cl">| id | name | value                            |
+</span></span><span class="line"><span class="cl">+----+------+----------------------------------+
+</span></span><span class="line"><span class="cl">|  5 | flag | 7b4bec00d1a39e3dd4e021ec3d915da8 |
+</span></span><span class="line"><span class="cl">+----+------+----------------------------------+
+</span></span></code></pre></div><p><img src="/images/writeups/Sequel/sql.es.png" alt="sql.es.png"></p>
+<hr>
+<h3 id="bandera">
+  Bandera
+  <a class="heading-link" href="#bandera">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>La bandera encontrada en la tabla <code>config</code> es:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">7b4bec00d1a39e3dd4e021ec3d915da8
+</span></span></code></pre></div><hr>
+<h3 id="conclusión">
+  Conclusión
+  <a class="heading-link" href="#conclusi%c3%b3n">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Sequel</strong> presenta un escenario sencillo basado en la enumeración de un servicio <strong>MariaDB</strong> y la interacción directa con una base de datos.</p>
+<p>El proceso seguido fue:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Enumeración
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Identificación del puerto 3306
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Detección de MariaDB
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Conexión mediante el cliente MariaDB
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Enumeración de bases de datos
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Selección de la base de datos htb
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Enumeración de tablas
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Identificación de la tabla config
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Enumeración de registros
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Obtención de la bandera
+</span></span></code></pre></div><p>A pesar de su dificultad <strong>Very Easy</strong>, la máquina permite practicar conceptos fundamentales relacionados con la enumeración de servicios de bases de datos, el uso del cliente MariaDB y las consultas SQL básicas para navegar por una base de datos y localizar información específica.</p>
+<hr>
+<h3 id="estado-completada">
+  <a href="https://labs.hackthebox.com/achievement/machine/3933963/403"  class="external-link" target="_blank" rel="noopener">Estado: Completada</a>
+  <a class="heading-link" href="#estado-completada">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2019 -
+    
+    2026
+     Z41F3R 
+    ·
+    
+    Desarrollado por <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>
