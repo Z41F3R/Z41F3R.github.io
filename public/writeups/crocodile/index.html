@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Crocodile · Z41F3R
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Z41F3R">
+<meta name="description" content="Starting Point machine focused on service enumeration, anonymous FTP access, and credential discovery to access a web panel.">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Crocodile">
+  <meta name="twitter:description" content="Starting Point machine focused on service enumeration, anonymous FTP access, and credential discovery to access a web panel.">
+
+<meta property="og:url" content="http://localhost:1313/writeups/crocodile/">
+  <meta property="og:site_name" content="Z41F3R">
+  <meta property="og:title" content="Crocodile">
+  <meta property="og:description" content="Starting Point machine focused on service enumeration, anonymous FTP access, and credential discovery to access a web panel.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:tag" content="FTP">
+    <meta property="article:tag" content="Web">
+    <meta property="article:tag" content="Credential Discovery">
+    <meta property="article:tag" content="Starting Point">
+    <meta property="article:tag" content="Fundamental Exploitation">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/writeups/crocodile/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+
+<link rel="stylesheet" href="/css/projects.css">
+<link rel="stylesheet" href="/css/writeups.css">
+
+
+
+
+    <script src="/js/writeups.js"></script>
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/avatar.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Z41F3R
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">z41f3r</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/writeups/">WriteUps</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/certificates/">Certificates</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/es/writeups/crocodile/">🇨🇱</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/writeups/crocodile/">
+          Crocodile
+        </a>
+      </h1>
+    </header>
+
+    <h3 id="overview">
+  Overview
+  <a class="heading-link" href="#overview">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Crocodile</strong> is a machine from the <strong>Starting Point</strong> path on Hack The Box. It is designed to practice fundamental concepts of service enumeration, <strong>anonymous FTP access</strong>, and credential discovery.</p>
+<p>The objective is to identify the exposed services, access the FTP server to obtain information about users and passwords, and use these credentials to access the web panel and locate the flag.</p>
+<hr>
+<h3 id="enumeration">
+  Enumeration
+  <a class="heading-link" href="#enumeration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>We begin by performing a scan with <strong>Nmap</strong> on ports <code>21</code> and <code>80</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nmap -sC -sV -p 21,80 --min-rate <span class="m">5000</span> -sS -Pn -T5 &lt;TARGET_IP&gt;
+</span></span></code></pre></div><p>The result shows two exposed services:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">PORT   STATE SERVICE VERSION
+</span></span><span class="line"><span class="cl">21/tcp open  ftp     vsftpd 3.0.3
+</span></span><span class="line"><span class="cl">80/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
+</span></span></code></pre></div><p>Additionally, Nmap identifies that the FTP server allows access through <strong>Anonymous FTP</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+</span></span><span class="line"><span class="cl">| -rw-r--r--    1 ftp      ftp            33 Jun 08  2021 allowed.userlist
+</span></span><span class="line"><span class="cl">| -rw-r--r--    1 ftp      ftp            62 Apr 20  2021 allowed.userlist.passwd
+</span></span></code></pre></div><p>This allows us to access the FTP service without credentials:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ftp &lt;TARGET_IP&gt;
+</span></span></code></pre></div><p>We use <code>anonymous</code> as the username:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Name (&lt;TARGET_IP&gt;:anonymous): anonymous
+</span></span><span class="line"><span class="cl">230 Login successful.
+</span></span></code></pre></div><p>By enumerating the available content, we find two files:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">allowed.userlist
+</span></span><span class="line"><span class="cl">allowed.userlist.passwd
+</span></span></code></pre></div><p>We proceed to download them:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">ftp&gt; get allowed.userlist
+</span></span><span class="line"><span class="cl">ftp&gt; get allowed.userlist.passwd
+</span></span></code></pre></div><p>Once downloaded, we can inspect their contents:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat allowed.userlist
+</span></span><span class="line"><span class="cl">cat allowed.userlist.passwd
+</span></span></code></pre></div><p>The files contain a list of users and a list of passwords that can later be used to identify valid credentials.</p>
+<hr>
+<h3 id="web-enumeration">
+  Web Enumeration
+  <a class="heading-link" href="#web-enumeration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The second identified service is running on port <code>80</code>, where an <strong>Apache HTTP</strong> server is running.</p>
+<p><img src="/images/writeups/Crocodile/pagina_encontrada.png" alt="sqli.es.png"></p>
+<p>To continue enumerating the website, we use <strong>Gobuster</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo gobuster dir -u http://&lt;TARGET_IP&gt; -w moding.txt -x php.html
+</span></span></code></pre></div><p>Among the results, we find several resources, including:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">config.php           (Status: 200)
+</span></span><span class="line"><span class="cl">login.php            (Status: 200)
+</span></span><span class="line"><span class="cl">logout.php           (Status: 302)
+</span></span><span class="line"><span class="cl">dashboard            (Status: 301)
+</span></span></code></pre></div><p>The <code>login.php</code> resource is particularly relevant, as it corresponds to an authentication panel:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">http://&lt;TARGET_IP&gt;/login.php
+</span></span></code></pre></div><hr>
+<h3 id="initial-access">
+  Initial Access
+  <a class="heading-link" href="#initial-access">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>After obtaining the users and passwords through FTP, we identify the credentials corresponding to the <code>admin</code> user.</p>
+<p>These credentials can be used in the authentication form available at:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">http://&lt;TARGET_IP&gt;/login.php
+</span></span></code></pre></div><p>We enter:</p>
+<p><img src="/images/writeups/Crocodile/login.png" alt="login\_ok.png"></p>
+<p>The authentication is successful and we gain access to the web panel.</p>
+<p>Once authenticated, we find the machine&rsquo;s flag.</p>
+<hr>
+<h3 id="flag">
+  Flag
+  <a class="heading-link" href="#flag">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The flag obtained after accessing the web panel is:</p>
+<p><img src="/images/writeups/Crocodile/flag.png" alt="login\_ok.png"></p>
+<hr>
+<h3 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Crocodile</strong> presents a straightforward scenario based on service enumeration, <strong>anonymous FTP access</strong>, and credential discovery.</p>
+<p>The process followed was:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Enumeration
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Identification of FTP and HTTP
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Anonymous FTP Access
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Retrieval of allowed.userlist
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Retrieval of allowed.userlist.passwd
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Web Server Enumeration
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Discovery of login.php
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Identification of Valid Credentials
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Web Panel Access
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Flag Retrieval
+</span></span></code></pre></div><p>Despite its <strong>Very Easy</strong> difficulty, the machine allows us to practice fundamental concepts related to service enumeration, anonymous FTP access, web resource discovery, and credential reuse to gain access to a web application.</p>
+<hr>
+<h3 id="status-completed">
+  <a href="https://labs.hackthebox.com/achievement/machine/3933963/404"  class="external-link" target="_blank" rel="noopener">Status: Completed</a>
+  <a class="heading-link" href="#status-completed">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2019 -
+    
+    2026
+     Z41F3R 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

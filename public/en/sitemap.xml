@@ -243,6 +243,18 @@
                 href="http://localhost:1313/tags/fundamental-exploitation/"
                 />
   </url><url>
+    <loc>http://localhost:1313/tags/mariadb/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/mariadb/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/mariadb/"
+                />
+  </url><url>
     <loc>http://localhost:1313/writeups/meow/</loc>
     <xhtml:link
                 rel="alternate"
@@ -279,6 +291,18 @@
                 href="http://localhost:1313/tags/redis/"
                 />
   </url><url>
+    <loc>http://localhost:1313/writeups/sequel/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/writeups/sequel/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/writeups/sequel/"
+                />
+  </url><url>
     <loc>http://localhost:1313/series/</loc>
     <xhtml:link
                 rel="alternate"
@@ -301,6 +325,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/tags/smb/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/sql/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/sql/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/sql/"
                 />
   </url><url>
     <loc>http://localhost:1313/tags/sql-injection/</loc>

@@ -183,6 +183,10 @@
                 href="http://localhost:1313/es/certificates/"
                 />
   </url><url>
+    <loc>http://localhost:1313/es/tags/credential-discovery/</loc>
+  </url><url>
+    <loc>http://localhost:1313/es/writeups/crocodile/</loc>
+  </url><url>
     <loc>http://localhost:1313/es/writeups/dancing/</loc>
     <xhtml:link
                 rel="alternate"
@@ -244,6 +248,16 @@
                 />
   </url><url>
     <loc>http://localhost:1313/es/tags/mariadb/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/mariadb/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/mariadb/"
+                />
   </url><url>
     <loc>http://localhost:1313/es/writeups/meow/</loc>
     <xhtml:link
@@ -282,6 +296,16 @@
                 />
   </url><url>
     <loc>http://localhost:1313/es/writeups/sequel/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/writeups/sequel/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/writeups/sequel/"
+                />
   </url><url>
     <loc>http://localhost:1313/es/series/</loc>
     <xhtml:link
@@ -308,6 +332,16 @@
                 />
   </url><url>
     <loc>http://localhost:1313/es/tags/sql/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/sql/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/sql/"
+                />
   </url><url>
     <loc>http://localhost:1313/es/tags/sql-injection/</loc>
     <xhtml:link
@@ -344,6 +378,8 @@
                 hreflang="es"
                 href="http://localhost:1313/es/tags/telnet/"
                 />
+  </url><url>
+    <loc>http://localhost:1313/es/tags/web/</loc>
   </url><url>
     <loc>http://localhost:1313/es/about/</loc>
     <xhtml:link

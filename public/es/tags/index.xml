@@ -44,6 +44,13 @@
       <description></description>
     </item>
     <item>
+      <title>Credential Discovery</title>
+      <link>http://localhost:1313/es/tags/credential-discovery/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/credential-discovery/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Foundations</title>
       <link>http://localhost:1313/es/tags/foundations/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -111,6 +118,13 @@
       <link>http://localhost:1313/es/tags/telnet/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/es/tags/telnet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Web</title>
+      <link>http://localhost:1313/es/tags/web/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/web/</guid>
       <description></description>
     </item>
   </channel>
