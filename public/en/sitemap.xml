@@ -183,6 +183,30 @@
                 href="http://localhost:1313/certificates/"
                 />
   </url><url>
+    <loc>http://localhost:1313/tags/credential-discovery/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/credential-discovery/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/credential-discovery/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/writeups/crocodile/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/writeups/crocodile/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/writeups/crocodile/"
+                />
+  </url><url>
     <loc>http://localhost:1313/writeups/dancing/</loc>
     <xhtml:link
                 rel="alternate"
@@ -378,6 +402,18 @@
     <loc>http://localhost:1313/tags/test/</loc>
   </url><url>
     <loc>http://localhost:1313/certificates/test/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/web/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/web/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/web/"
+                />
   </url><url>
     <loc>http://localhost:1313/about/</loc>
     <xhtml:link

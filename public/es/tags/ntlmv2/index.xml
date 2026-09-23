@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NTLMv2 on Z4IF3R</title>
+    <link>http://localhost:1313/es/tags/ntlmv2/</link>
+    <description>Recent content in NTLMv2 on Z4IF3R</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <atom:link href="http://localhost:1313/es/tags/ntlmv2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Responder</title>
+      <link>http://localhost:1313/es/writeups/responder/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/writeups/responder/</guid>
+      <description>&lt;h3 id=&#34;descripción-general&#34;&gt;&#xA;  Descripción general&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#descripci%c3%b3n-general&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Responder&lt;/strong&gt; es una máquina perteneciente a &lt;strong&gt;Starting Point&lt;/strong&gt; de Hack The Box. Está diseñada para practicar conceptos fundamentales de enumeración de servicios, explotación de &lt;strong&gt;Remote File Inclusion (RFI)&lt;/strong&gt;, captura de autenticación &lt;strong&gt;NTLMv2&lt;/strong&gt; y acceso remoto mediante &lt;strong&gt;WinRM&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;El objetivo consiste en identificar los servicios expuestos, analizar la aplicación web, aprovechar una inclusión remota de archivos para provocar una autenticación SMB, capturar el hash NTLMv2 con &lt;strong&gt;Responder&lt;/strong&gt;, recuperar la contraseña mediante cracking y utilizar las credenciales para acceder al sistema mediante &lt;strong&gt;Evil-WinRM&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

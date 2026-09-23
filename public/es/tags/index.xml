@@ -79,10 +79,31 @@
       <description></description>
     </item>
     <item>
+      <title>NTLMv2</title>
+      <link>http://localhost:1313/es/tags/ntlmv2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/ntlmv2/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Redis</title>
       <link>http://localhost:1313/es/tags/redis/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/es/tags/redis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Responder</title>
+      <link>http://localhost:1313/es/tags/responder/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/responder/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RFI</title>
+      <link>http://localhost:1313/es/tags/rfi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/rfi/</guid>
       <description></description>
     </item>
     <item>
@@ -125,6 +146,13 @@
       <link>http://localhost:1313/es/tags/web/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/es/tags/web/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>WinRM</title>
+      <link>http://localhost:1313/es/tags/winrm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/winrm/</guid>
       <description></description>
     </item>
   </channel>
